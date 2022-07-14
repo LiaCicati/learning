@@ -15,8 +15,8 @@
         </h2>
         <p class="game-header-genres">
           <span *ngFor="let genre of game.genres; let last = last"
-          >{{ genre.name }}<span *ngIf="!last">, </span></span
-        >
+            >{{ genre.name }}<span *ngIf="!last">, </span></span
+          >
         </p>
         <div class="game-gauge">
           <mwl-gauge
@@ -38,7 +38,7 @@
           >
         </div>
       </div>
-      <app-game-tabs></app-game-tabs>
+      <app-game-tabs [game]="game"></app-game-tabs>
     </div>
   </div>
 </div>

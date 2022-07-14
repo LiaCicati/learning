@@ -31,6 +31,7 @@ import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
+    MatTabsModule
   ],
   providers: [
     {
