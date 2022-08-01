@@ -31,6 +31,7 @@ export class ButtonComponent implements OnInit {
   }
   submitValue(newTitle: string): void {
     this.submit.emit(newTitle);
-    console.log(newTitle);
+
+    this.newTaskText = '';
   }
 }
