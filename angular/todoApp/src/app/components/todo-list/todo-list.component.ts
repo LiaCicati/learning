@@ -2,27 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { TodoItem } from '../../interfaces/todo-item';
 import { TodoListService } from '../../services/todo-list.service';
-import { ButtonComponent } from '../button/button.component';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
+import { InputButtonComponent } from '../input-button/input-button.component';
 
 @Component({
   standalone: true,
   selector: 'app-todo-list',
-  imports: [ButtonComponent, TodoItemComponent, CommonModule],
-  template: `
-    <div class="todo-app">
-      <app-button (submit)="addItem($event)"></app-button>
-      <ul class="list">
-        <li *ngFor="let todoItem of todoList">
-          <app-todo-item
-            [item]="todoItem"
-            (remove)="removeItem($event)"
-            (update)="updateItem($event.item, $event.changes)"
-          ></app-todo-item>
-        </li>
-      </ul>
-    </div>
-  `,
+  imports: [InputButtonComponent, TodoItemComponent, CommonModule],
+  templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent implements OnInit {

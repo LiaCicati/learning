@@ -1,19 +1,35 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { MockBuilder, MockRender, ngMocks } from 'ng-mocks';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+  beforeEach(() => {
+    return MockBuilder(AppComponent);
   });
 
+  beforeEach(() => {
+    return MockBuilder().keep(AppComponent, {
+      shallow: true,
+      export: true,
+    });
+  });
+
+  // beforeEach(async () => {
+  //   await TestBed.configureTestingModule({
+  //     declarations: [
+  //       AppComponent
+  //     ],
+  //   }).compileComponents();
+  // });
+
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    // const fixture = TestBed.createComponent(AppComponent);
+    // const app = fixture.componentInstance;
+    // expect(app).toBeTruthy();
+    const fixture = MockRender(AppComponent);
+    expect(
+      fixture.point.componentInstance,
+    ).toEqual(jasmine.any(AppComponent));
   });
 
   it(`should have as title 'todoApp'`, () => {
@@ -22,10 +38,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('todoApp');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('todoApp app is running!');
-  });
 });

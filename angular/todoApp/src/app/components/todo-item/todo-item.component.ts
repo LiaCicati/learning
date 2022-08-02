@@ -5,26 +5,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   selector: 'app-todo-item',
   imports: [CommonModule],
-  template: `
-    <div class="todo-item">
-      <div>
-        <input
-          type="checkbox"
-          class="todo-checkbox"
-          (click)="completeItem()"
-          [checked]="item.completed"
-        />
-        <span
-          class="todo-title"
-          [ngClass]="{ 'todo-complete': item.completed }"
-        >
-          {{ item.title }}
-        </span>
-      </div>
-
-      <button class="button-delete" (click)="removeItem()">x</button>
-    </div>
-  `,
+  templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css'],
 })
 export class TodoItemComponent implements OnInit {
