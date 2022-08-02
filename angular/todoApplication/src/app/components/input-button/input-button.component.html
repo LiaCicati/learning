@@ -1,0 +1,11 @@
+<input
+  #inputElementRef
+  (input)="onInput(inputElementRef.value)"
+  [value]="newTaskText"
+  placeholder="Add new task"
+  class="input"
+/>
+
+<button class="button" (click)="submitValue(inputElementRef.value)">
+  Add
+</button>
