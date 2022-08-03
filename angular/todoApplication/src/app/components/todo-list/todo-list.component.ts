@@ -20,7 +20,7 @@ export class TodoListComponent implements OnInit {
 
   addItem(title: string): void {
     if (!title) {
-      this.errorMessageText = "Task can't be empty";
+      this.errorMessageText = "Task cannot be empty";
       return;
     }
     this.errorMessageText = '';
