@@ -7,11 +7,14 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { CommonModule } from '@angular/common';
 import { TodoItem } from '../../interfaces/todo-item';
 import { By } from '@angular/platform-browser';
+import { Spectator, createComponentFactory, createHostFactory } from '@ngneat/spectator';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
   // let fixture: ComponentFixture<TodoListComponent>;
   let item: TodoItem;
+  let spectator: Spectator<TodoListComponent>;
+  const createComponent = createComponentFactory(TodoListComponent);
   // beforeEach(async () => {
   //   await TestBed.configureTestingModule({
   //     imports: [TodoListComponent]
@@ -42,6 +45,8 @@ describe('TodoListComponent', () => {
       ]
     );
   });
+
+  beforeEach(() => (spectator = createComponent()));
 
   it('should create', () => {
     const fixture = MockRender(TodoListComponent);
@@ -91,7 +96,7 @@ describe('TodoListComponent', () => {
     const fixture = MockRender(TodoListComponent);
 
     fixture.point.componentInstance.removeItem(
-      fixture.point.componentInstance.todoList[1]
+      item
     );
     fixture.detectChanges();
 
@@ -151,5 +156,14 @@ describe('TodoListComponent', () => {
       .triggerEventHandler("click", null);
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.innerHTML).toContain("to do");
+  });
+
+  it('should trigger click event on addButon', () => {
+    const fixture = MockRender(TodoListComponent);
+    const { debugElement } = fixture;
+    const addButton = debugElement.query(
+      By.css('.button')
+    );
+    addButton.triggerEventHandler('click', null);
   });
 });

@@ -3,11 +3,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TodoItemComponent } from './todo-item.component';
 import { MockBuilder, MockRender } from 'ng-mocks';
 import { CommonModule } from '@angular/common';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
 describe('TodoItemComponent', () => {
   let component: TodoItemComponent;
   let fixture: ComponentFixture<TodoItemComponent>;
 
+  let spectator: Spectator<TodoItemComponent>;
+  const createComponent = createComponentFactory(TodoItemComponent);
   // beforeEach(async () => {
   //   await TestBed.configureTestingModule({
   //     declarations: [ TodoItemComponent ],
@@ -37,10 +40,16 @@ describe('TodoItemComponent', () => {
     );
   });
 
+  beforeEach(() => (spectator = createComponent()));
+
   it('should create', () => {
     const fixture = MockRender(TodoItemComponent);
     expect(
       fixture.point.componentInstance,
     ).toEqual(jasmine.any(TodoItemComponent));
   });
+
+
+
+
 });

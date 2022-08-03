@@ -18,23 +18,25 @@ export class TodoListComponent implements OnInit {
 
   constructor(private todoListService: TodoListService) {}
 
-  addItem(title: string): void {
+  ngOnInit(): void {
+    this.todoList = this.todoListService.getTodoList();
+  }
+
+  public addItem(title: string): void {
     if (!title) {
-      this.errorMessageText = "Task cannot be empty";
+      this.errorMessageText = 'Task cannot be empty';
       return;
     }
+
     this.errorMessageText = '';
     this.todoListService.addItem({ title });
   }
 
-  removeItem(item: TodoItem): void {
+  public removeItem(item: TodoItem): void {
     this.todoListService.deleteItem(item);
   }
 
-  updateItem(item: TodoItem, changes: any): void {
+  public updateItem(item: TodoItem, changes: any): void {
     this.todoListService.updateItem(item, changes);
-  }
-  ngOnInit(): void {
-    this.todoList = this.todoListService.getTodoList();
   }
 }
