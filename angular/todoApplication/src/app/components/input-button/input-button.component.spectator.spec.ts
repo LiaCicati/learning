@@ -1,13 +1,27 @@
-import { ComponentFixture } from '@angular/core/testing';
 import { Spectator, createComponentFactory } from '@ngneat/spectator';
-import { MockBuilder, MockRender } from 'ng-mocks';
+import { MockBuilder, MockComponents, ngMocks } from 'ng-mocks';
 import { InputButtonComponent } from './input-button.component';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
 
-describe('InputButtonComponent spectator', () => {
+describe('InputButtonComponentSpectator', () => {
   let spectator: Spectator<InputButtonComponent>;
-  const createComponent = createComponentFactory(InputButtonComponent);
+  // const dependencies = MockBuilder(InputButtonComponent).build();
+  const createComponent = createComponentFactory({
+    component: InputButtonComponent,
+    mocks: [], // services, directives?
+    declarations: [...MockComponents()]
+
+  });
+
 
   beforeEach(() => (spectator = createComponent()));
+
+  it('should create', () => {
+    const todo = ngMocks.findInstance(TodoItemComponent)
+    todo.item
+    expect(spectator.component).toBeTruthy();
+  });
+
 
   it('should have a button class', () => {
     expect(spectator.query('button')).toHaveClass('button');

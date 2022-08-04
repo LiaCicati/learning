@@ -21,7 +21,7 @@ describe('InputButtonComponent', () => {
   //   fixture.detectChanges();
   // });
 
-  beforeEach(() => spectator = createComponent());
+  beforeEach(() => (spectator = createComponent()));
   beforeEach(() => {
     return MockBuilder().keep(InputButtonComponent, {
       shallow: true,
@@ -31,15 +31,12 @@ describe('InputButtonComponent', () => {
 
   it('should create', () => {
     const fixture = MockRender(InputButtonComponent);
-    expect(
-      fixture.point.componentInstance,
-    ).toEqual(jasmine.any(InputButtonComponent));
+    expect(fixture.point.componentInstance).toEqual(
+      jasmine.any(InputButtonComponent)
+    );
   });
-
 
   it('should have a button class', () => {
     expect(spectator.query('button')).toHaveClass('button');
   });
-
-
 });

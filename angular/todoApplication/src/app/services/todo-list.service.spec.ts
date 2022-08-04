@@ -9,7 +9,6 @@ describe('TodoListService', () => {
   let storage: StorageService;
   let item: TodoItem;
 
-
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(TodoListService);
@@ -18,11 +17,10 @@ describe('TodoListService', () => {
     service = new TodoListService(storage);
 
     item = {
-      title : "ff",
-      completed: false
-    }
-service.todoList = storage.getData("Todo_List");
-
+      title: 'ff',
+      completed: false,
+    };
+    service.todoList = storage.getData('Todo_List');
   });
   // beforeEach(() => {
   //   service = new TodoListService(storage);
@@ -33,15 +31,13 @@ service.todoList = storage.getData("Todo_List");
     expect(service).toBeTruthy();
   });
 
-//   it("should create a task in an array", () => {
+  //   it("should create a task in an array", () => {
 
-// // service.addItem(item);
+  // // service.addItem(item);
 
-//     expect(service.todoList.length).toBeGreaterThanOrEqual(1);
+  //     expect(service.todoList.length).toBeGreaterThanOrEqual(1);
 
-// console.log("!!!!!!!!!!!!!!!!!! : " + service.todoList);
+  // console.log("!!!!!!!!!!!!!!!!!! : " + service.todoList);
 
-
-
-//   });
+  //   });
 });
