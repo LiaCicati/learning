@@ -24,6 +24,7 @@ describe('TodoListService', () => {
     item = {
       title: 'hi',
     };
+
     spectator.service.addItem(item);
     expect(spectator.service.todoList.length).toBeGreaterThan(2);
   });

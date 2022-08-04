@@ -2,42 +2,65 @@ import { TestBed } from '@angular/core/testing';
 
 import { TodoListService } from './todo-list.service';
 import { TodoItem } from '../interfaces/todo-item';
-import { StorageService } from './storage.service';
+
 
 describe('TodoListService', () => {
   let service: TodoListService;
-  let storage: StorageService;
   let item: TodoItem;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(TodoListService);
+    const storage = jasmine.createSpyObj('StorageService', [
+      'getData',
+      'setData',
+    ]);
 
-    storage = new StorageService();
     service = new TodoListService(storage);
 
     item = {
-      title: 'ff',
+      title: 'new task to do',
       completed: false,
     };
-    service.todoList = storage.getData('Todo_List');
   });
-  // beforeEach(() => {
-  //   service = new TodoListService(storage);
-  //   storage = new StorageService();
-  // });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  //   it("should create a task in an array", () => {
+  it('should add task', () => {
+    service.todoList = [];
 
-  // // service.addItem(item);
+    service.addItem(item);
 
-  //     expect(service.todoList.length).toBeGreaterThanOrEqual(1);
+    expect(service.todoList.length).toBe(1);
+  });
 
-  // console.log("!!!!!!!!!!!!!!!!!! : " + service.todoList);
+  it('should delete task', () => {
+    service.todoList = [];
+    service.addItem(item);
+    service.deleteItem(item);
+    expect(service.todoList.length).toBe(0);
+  });
 
-  //   });
+  it('should update task', () => {
+    service.todoList = [];
+    service.addItem(item);
+    service.updateItem(item, (item.completed = true));
+
+    expect(service.todoList[0].completed).toBeTruthy();
+  });
+
+  it('should return list of tasks', () => {
+    service.todoList = [];
+    service.addItem(item);
+    service.addItem(item);
+
+    expect(service.getTodoList().length).toBe(2);
+
+    expect(service.getTodoList()).toEqual([
+      { title: 'new task to do', completed: false },
+      { title: 'new task to do', completed: false },
+    ]);
+  });
+
+
 });

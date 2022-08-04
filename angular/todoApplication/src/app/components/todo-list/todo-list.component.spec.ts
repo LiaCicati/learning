@@ -7,7 +7,12 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { CommonModule } from '@angular/common';
 import { TodoItem } from '../../interfaces/todo-item';
 import { By } from '@angular/platform-browser';
-import { Spectator, createComponentFactory, createHostFactory } from '@ngneat/spectator';
+import {
+  Spectator,
+  createComponentFactory,
+  createHostFactory,
+  SpyObject,
+} from '@ngneat/spectator';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -15,14 +20,14 @@ describe('TodoListComponent', () => {
   let item: TodoItem;
   let spectator: Spectator<TodoListComponent>;
   const createComponent = createComponentFactory({
-    component : TodoListComponent,
+    component: TodoListComponent,
     mocks: [
       TodoListComponent,
-        TodoListService,
-        InputButtonComponent,
-        TodoItemComponent,
-        CommonModule
-    ]
+      TodoListService,
+      InputButtonComponent,
+      TodoItemComponent,
+      CommonModule,
+    ],
   });
   // beforeEach(async () => {
   //   await TestBed.configureTestingModule({
@@ -57,15 +62,15 @@ describe('TodoListComponent', () => {
 
   beforeEach(() => (spectator = createComponent()));
 
-  it('should create', () => {
-    const fixture = MockRender(TodoListComponent);
-    expect(fixture.point.componentInstance).toEqual(
-      jasmine.any(TodoListComponent)
-    );
-  });
-  // it("should create ToDo List component", () => {
-  //   expect(component).toBeTruthy();
+  // it('should create', () => {
+  //   const fixture = MockRender(TodoListComponent);
+  //   expect(fixture.point.componentInstance).toEqual(
+  //     jasmine.any(TodoListComponent)
+  //   );
   // });
+  it("should create ToDo List component", () => {
+    expect(spectator.component).toBeTruthy();
+  });
 
   it('should use the todoList from the service', () => {
     const fixture = MockRender(TodoListComponent);
@@ -101,20 +106,15 @@ describe('TodoListComponent', () => {
     expect(compiled.innerHTML).toContain('hi');
   });
 
-  it('should remove a task', () => {
-    const fixture = MockRender(TodoListComponent);
+  it('should call remove task once', () => {
+    const spy = jasmine.createSpyObj('TodoListComponent', [
+      'todoList',
+      'removeItem',
+    ]);
 
-    fixture.point.componentInstance.removeItem(
-      item
-    );
-    fixture.detectChanges();
+    spy.removeItem('task');
 
-    console.log(
-      'List from remove: ' + fixture.point.componentInstance.todoList.length
-    );
-    console.log(fixture.point.componentInstance.todoList);
-    const compiled = fixture.debugElement.nativeElement;
-    // expect(fixture.point.componentInstance.todoList.length).toEqual(2);
+    expect(spy.removeItem).toHaveBeenCalledTimes(1);
   });
 
   it('should update a task', () => {
@@ -131,8 +131,6 @@ describe('TodoListComponent', () => {
       (newItem.completed = true)
     );
 
-    // newItem.completed = true;
-
     fixture.detectChanges();
 
     console.log(newItem.completed);
@@ -140,39 +138,27 @@ describe('TodoListComponent', () => {
     expect(newItem.completed).toBeTruthy();
   });
 
-  it('should get the list of tasks', () => {
-    const fixture = MockRender(TodoListComponent);
+  it('should call addItem', () => {
+    const spy = jasmine.createSpyObj('TodoListComponent', [
+      'todoList',
+      'addItem',
+    ]);
 
-    fixture.detectChanges();
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+    spy.addItem('task');
 
-    console.log(fixture.point.componentInstance.todoList.length);
-
-    expect(
-      fixture.point.componentInstance.todoList.length
-    ).toBeGreaterThanOrEqual(1);
+    expect(spy.addItem).toHaveBeenCalled();
   });
 
-
-  it("should remove task upon click", () => {
+  it('should remove task upon click', () => {
     const fixture = MockRender(TodoListComponent);
     fixture.point.componentInstance.addItem('to do');
     fixture.detectChanges();
 
     fixture.debugElement
-      .query(By.css(".todo-item"))
-      .query(By.css(".button-delete"))
-      .triggerEventHandler("click", null);
+      .query(By.css('.todo-item'))
+      .query(By.css('.button-delete'))
+      .triggerEventHandler('click', null);
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.innerHTML).toContain("to do");
+    expect(compiled.innerHTML).toContain('to do');
   });
-
-  // it('should trigger click event on addButon', () => {
-  //   const fixture = MockRender(TodoListComponent);
-  //   const { debugElement } = fixture;
-  //   const addButton = debugElement.query(
-  //     By.css('.button')
-  //   );
-  //   addButton.triggerEventHandler('click', null);
-  // });
 });
