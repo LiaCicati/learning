@@ -15,10 +15,12 @@ describe('TodoListComponent', () => {
     component: TodoListComponent,
     mocks: [
       TodoListComponent,
-      TodoListService,
       InputButtonComponent,
       TodoItemComponent,
       CommonModule,
+    ],
+    providers: [
+      { provide: TodoListService, useValue: {} }
     ],
   });
 
@@ -38,10 +40,6 @@ describe('TodoListComponent', () => {
   beforeEach(() => (spectator = createComponent()));
 
   it('should create', () => {
-    expect(spectator.component).toBeTruthy();
-  });
-
-  it('should create ToDo List component', () => {
     expect(spectator.component).toBeTruthy();
   });
 
@@ -134,4 +132,6 @@ describe('TodoListComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.innerHTML).toContain('to do');
   });
+
+
 });

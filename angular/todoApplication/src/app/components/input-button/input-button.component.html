@@ -1,6 +1,7 @@
 <input
   #inputElementRef
   (input)="onInput(inputElementRef.value)"
+  (keyup.enter)="submitValue(inputElementRef.value)"
   [value]="newTaskText"
   placeholder="Add new task"
   class="input"
