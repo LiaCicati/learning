@@ -1,39 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { InputButtonComponent } from './input-button.component';
-import { MockBuilder, MockRender } from 'ng-mocks';
+import { MockBuilder, MockComponents, MockRender, ngMocks } from 'ng-mocks';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
 
 describe('InputButtonComponent', () => {
-  let component: InputButtonComponent;
-  let fixture: ComponentFixture<InputButtonComponent>;
-
   let spectator: Spectator<InputButtonComponent>;
-  const createComponent = createComponentFactory(InputButtonComponent);
-  // beforeEach(async () => {
-  //   await TestBed.configureTestingModule({
-  //     declarations: [ InputButtonComponent ],
-  //     imports: [InputButtonComponent]
-  //   })
-  //   .compileComponents();
 
-  //   fixture = TestBed.createComponent(InputButtonComponent);
-  //   component = fixture.componentInstance;
-  //   fixture.detectChanges();
-  // });
-
-  beforeEach(() => (spectator = createComponent()));
-  beforeEach(() => {
-    return MockBuilder().keep(InputButtonComponent, {
-      shallow: true,
-      export: true,
-    });
+  const createComponent = createComponentFactory({
+    component: InputButtonComponent,
+    mocks: [TodoItemComponent], // services, directives?
   });
 
+  beforeEach(() => (spectator = createComponent()));
+
   it('should create', () => {
-    const fixture = MockRender(InputButtonComponent);
-    expect(fixture.point.componentInstance).toEqual(
-      jasmine.any(InputButtonComponent)
-    );
+    expect(spectator.component).toBeTruthy();
   });
 
   it('should have a button class', () => {

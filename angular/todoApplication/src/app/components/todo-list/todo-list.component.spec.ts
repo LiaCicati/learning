@@ -1,4 +1,3 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockBuilder, MockRender } from 'ng-mocks';
 import { TodoListComponent } from './todo-list.component';
 import { TodoListService } from '../../services/todo-list.service';
@@ -7,16 +6,9 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { CommonModule } from '@angular/common';
 import { TodoItem } from '../../interfaces/todo-item';
 import { By } from '@angular/platform-browser';
-import {
-  Spectator,
-  createComponentFactory,
-  createHostFactory,
-  SpyObject,
-} from '@ngneat/spectator';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
 describe('TodoListComponent', () => {
-  let component: TodoListComponent;
-  // let fixture: ComponentFixture<TodoListComponent>;
   let item: TodoItem;
   let spectator: Spectator<TodoListComponent>;
   const createComponent = createComponentFactory({
@@ -29,23 +21,6 @@ describe('TodoListComponent', () => {
       CommonModule,
     ],
   });
-  // beforeEach(async () => {
-  //   await TestBed.configureTestingModule({
-  //     imports: [TodoListComponent]
-  //   })
-  //   .compileComponents();
-
-  //   fixture = TestBed.createComponent(TodoListComponent);
-  //   component = fixture.componentInstance;
-  //   fixture.detectChanges();
-  // });
-
-  // beforeEach(() => {
-  //   return MockBuilder().keep(TodoListComponent, {
-  //     shallow: true,
-  //     export: true,
-  //   });
-  // });
 
   beforeEach(() => {
     return MockBuilder(
@@ -62,13 +37,11 @@ describe('TodoListComponent', () => {
 
   beforeEach(() => (spectator = createComponent()));
 
-  // it('should create', () => {
-  //   const fixture = MockRender(TodoListComponent);
-  //   expect(fixture.point.componentInstance).toEqual(
-  //     jasmine.any(TodoListComponent)
-  //   );
-  // });
-  it("should create ToDo List component", () => {
+  it('should create', () => {
+    expect(spectator.component).toBeTruthy();
+  });
+
+  it('should create ToDo List component', () => {
     expect(spectator.component).toBeTruthy();
   });
 
