@@ -23,7 +23,7 @@ export class TodoListComponent implements OnInit {
   }
 
   public hasWhiteSpace(s: string) {
-    return /\s/g.test(s);
+    return /^\s/.test( s);
   }
 
   public addItem(title: string): void {

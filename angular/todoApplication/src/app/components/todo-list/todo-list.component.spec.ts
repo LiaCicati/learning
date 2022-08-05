@@ -120,4 +120,10 @@ describe('TodoListComponent', () => {
 
     expect(component.errorMessageText).toBe('Task cannot be empty');
   });
+
+  it('should show error message if adding whitespace in the beggining of the string', () => {
+    component.addItem('    g');
+
+    expect(component.errorMessageText).toBe('This field cannot be left blank');
+  });
 });
