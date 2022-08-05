@@ -11,6 +11,7 @@ import { Spectator, createComponentFactory } from '@ngneat/spectator';
 describe('TodoListComponent', () => {
   let item: TodoItem;
   let spectator: Spectator<TodoListComponent>;
+  let component: TodoListComponent;
   const createComponent = createComponentFactory({
     component: TodoListComponent,
     mocks: [
@@ -37,21 +38,22 @@ describe('TodoListComponent', () => {
 
   beforeEach(() => {
     spectator = createComponent();
+    component = spectator.component;
   });
 
   it('should create', () => {
-    expect(spectator.component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   it('should use the todoList from the service', () => {
     const taskService = spectator.inject(TodoListService);
     spectator.detectChanges();
 
-    expect(taskService.getTodoList()).toEqual(spectator.component.todoList);
+    expect(taskService.getTodoList()).toEqual(component.todoList);
   });
 
   it('should add task', () => {
-    spectator.component.addItem('to do this');
+    component.addItem('to do this');
     spectator.detectChanges();
     const compiled = spectator.debugElement.nativeElement;
     expect(compiled.innerHTML).toContain('to do this');
@@ -114,8 +116,8 @@ describe('TodoListComponent', () => {
   });
 
   it('should show error message if adding empty task', () => {
-    spectator.component.addItem('');
+    component.addItem('');
 
-    expect(spectator.component.errorMessageText).toBe('Task cannot be empty');
+    expect(component.errorMessageText).toBe('Task cannot be empty');
   });
 });

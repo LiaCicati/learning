@@ -6,6 +6,7 @@ import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
 describe('TodoItemComponent', () => {
   let spectator: Spectator<TodoItemComponent>;
+  let component: TodoItemComponent;
 
   const createComponent = createComponentFactory({
     component: TodoItemComponent,
@@ -13,11 +14,12 @@ describe('TodoItemComponent', () => {
 
   beforeEach(() => {
     spectator = createComponent();
+    component = spectator.component;
   });
 
 
   it('should create', () => {
-    expect(spectator.component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
 });

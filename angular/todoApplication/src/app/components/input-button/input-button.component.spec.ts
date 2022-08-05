@@ -7,16 +7,19 @@ import { By } from '@angular/platform-browser';
 
 describe('InputButtonComponent', () => {
   let spectator: Spectator<InputButtonComponent>;
-
+  let component: InputButtonComponent;
   const createComponent = createComponentFactory({
     component: InputButtonComponent,
     mocks: [TodoItemComponent], // services, directives?
   });
 
-  beforeEach(() => (spectator = createComponent()));
+  beforeEach(() => {
+    spectator = createComponent();
+    component = spectator.component;
+  });
 
   it('should create', () => {
-    expect(spectator.component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   it('should have a button class', () => {
@@ -28,17 +31,17 @@ describe('InputButtonComponent', () => {
   });
 
   it('input should be empty when initialized', () => {
-    expect(spectator.component.newTaskText).toEqual('');
+    expect(component.newTaskText).toEqual('');
   });
 
   it('should call onInput with specified value', () => {
-    spectator.component.onInput('hello');
-    expect(spectator.component.newTaskText).toBe('hello');
+    component.onInput('hello');
+    expect(component.newTaskText).toBe('hello');
   });
 
   it('should clear the field after submitting a value', () => {
-    spectator.component.submitValue('new to do');
+    component.submitValue('new to do');
 
-    expect(spectator.component.newTaskText).toEqual('');
+    expect(component.newTaskText).toEqual('');
   });
 });
