@@ -11,19 +11,28 @@ describe('TodoItemComponent', () => {
 
   const createComponent = createComponentFactory({
     component: TodoItemComponent,
-    imports: [CommonModule]
+    imports: [CommonModule],
   });
 
   beforeEach(() => {
     spectator = createComponent();
     component = spectator.component;
+    // component.item.title = "hello"
+    // console.log("!!!!!!!!!!!!!!!!!!!!!");
+
+    // console.log(component.item);
   });
 
-
   it('should create', () => {
-    pending();
-    // console.log(component);
+    // pending();
+    console.log(spectator);
     // expect(component).toBeFalsy();
   });
 
+  // it('should correctly render the passed @Input value', () => {
+  //   component.item = { title: 'you' }; // 1
+  //   spectator.detectChanges(); // 2
+  //   const compiled = spectator.debugElement.nativeElement; // 2
+  //   expect(compiled.innerHTML).toContain('you');
+  // });
 });

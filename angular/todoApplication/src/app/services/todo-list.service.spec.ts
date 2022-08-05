@@ -13,7 +13,8 @@ describe('TodoListService', () => {
       'getData',
       'setData',
     ]);
-
+    const stubValue = {}
+    storage.getData.and.returnValue(stubValue);
     service = new TodoListService(storage);
 
     item = {

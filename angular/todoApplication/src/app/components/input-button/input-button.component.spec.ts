@@ -44,4 +44,18 @@ describe('InputButtonComponent', () => {
 
     expect(component.newTaskText).toEqual('');
   });
+
+  it('should correctly @Output value of text input in component', () => {
+    spyOn(component.submit, 'emit'); // “spy” on the emit method of component.submit object.
+    const button = spectator.debugElement.nativeElement.querySelector('button');
+    spectator.debugElement.nativeElement.querySelector('input').value =
+      'A new title'; // Change the value of the component’s text input.
+    const inputText =
+      spectator.debugElement.nativeElement.querySelector('input').value;
+
+    button.click(); // Simulate the button click
+    spectator.detectChanges();
+
+    expect(component.submit.emit).toHaveBeenCalledWith(inputText);
+  });
 });
