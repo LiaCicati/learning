@@ -26,4 +26,9 @@ describe('AppComponentSpectator', () => {
       'ToDo List'
     );
   });
+
+  it('should display a different test title', () => {
+    spectator.component.title = 'Test Title';
+    expect(spectator.component.title).toContain('Test Title');
+  });
 });

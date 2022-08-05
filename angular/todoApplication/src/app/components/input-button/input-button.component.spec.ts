@@ -41,13 +41,4 @@ describe('InputButtonComponent', () => {
 
     expect(spectator.component.newTaskText).toEqual('');
   });
-
-  it('should add task upon click', () => {
-    spectator.debugElement
-      .query(By.css('.button'))
-      .triggerEventHandler('click', null);
-
-    const compiled = spectator.debugElement.nativeElement;
-    expect(compiled.innerHTML).toContain('');
-  });
 });

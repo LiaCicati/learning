@@ -19,9 +19,7 @@ describe('TodoListComponent', () => {
       TodoItemComponent,
       CommonModule,
     ],
-    providers: [
-      { provide: TodoListService, useValue: {} }
-    ],
+    providers: [{ provide: TodoListService, useValue: {} }],
   });
 
   beforeEach(() => {
@@ -37,56 +35,38 @@ describe('TodoListComponent', () => {
     );
   });
 
-  beforeEach(() => (spectator = createComponent()));
+  beforeEach(() => {
+    spectator = createComponent();
+  });
 
   it('should create', () => {
     expect(spectator.component).toBeTruthy();
   });
 
   it('should use the todoList from the service', () => {
-    const fixture = MockRender(TodoListComponent);
-    const taskService = fixture.debugElement.injector.get(TodoListService);
-    fixture.detectChanges();
-    console.log(taskService.getTodoList());
-    console.log(fixture.point.componentInstance.todoList);
+    const taskService = spectator.inject(TodoListService);
+    spectator.detectChanges();
 
-    expect(taskService.getTodoList()).toEqual(
-      fixture.point.componentInstance.todoList
-    );
+    expect(taskService.getTodoList()).toEqual(spectator.component.todoList);
   });
 
-  it('should create a new task', () => {
-    const fixture = MockRender(TodoListComponent);
-    fixture.point.componentInstance.addItem('hello');
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.innerHTML).toContain('hello');
+  it('should add task', () => {
+    spectator.component.addItem('to do this');
+    spectator.detectChanges();
+    const compiled = spectator.debugElement.nativeElement;
+    expect(compiled.innerHTML).toContain('to do this');
   });
 
-  it('should add a task', () => {
-    const fixture = MockRender(TodoListComponent);
-    item = {
-      title: 'hi',
-      completed: false,
-    };
-    fixture.point.componentInstance.addItem(item.title);
-    fixture.detectChanges();
+  // it('should call remove task once', () => {
+  //   const spy = jasmine.createSpyObj('TodoListComponent', [
+  //     'todoList',
+  //     'removeItem',
+  //   ]);
 
-    console.log(fixture.point.componentInstance.todoList.length);
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.innerHTML).toContain('hi');
-  });
+  //   spy.removeItem(3);
 
-  it('should call remove task once', () => {
-    const spy = jasmine.createSpyObj('TodoListComponent', [
-      'todoList',
-      'removeItem',
-    ]);
-
-    spy.removeItem('task');
-
-    expect(spy.removeItem).toHaveBeenCalledTimes(1);
-  });
+  //   expect(spy.removeItem).toHaveBeenCalledTimes(1);
+  // });
 
   it('should update a task', () => {
     const fixture = MockRender(TodoListComponent);
@@ -133,5 +113,9 @@ describe('TodoListComponent', () => {
     expect(compiled.innerHTML).toContain('to do');
   });
 
+  it('should show error message if adding empty task', () => {
+    spectator.component.addItem('');
 
+    expect(spectator.component.errorMessageText).toBe('Task cannot be empty');
+  });
 });
