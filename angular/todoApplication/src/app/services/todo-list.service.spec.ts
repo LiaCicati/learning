@@ -3,7 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { TodoListService } from './todo-list.service';
 import { TodoItem } from '../interfaces/todo-item';
 
-
 describe('TodoListService', () => {
   let service: TodoListService;
   let item: TodoItem;
@@ -13,7 +12,7 @@ describe('TodoListService', () => {
       'getData',
       'setData',
     ]);
-    const stubValue = {}
+    const stubValue = {};
     storage.getData.and.returnValue(stubValue);
     service = new TodoListService(storage);
 
@@ -22,7 +21,7 @@ describe('TodoListService', () => {
       completed: false,
     };
   });
-
+  //TODO: add describe
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
@@ -57,11 +56,6 @@ describe('TodoListService', () => {
 
     expect(service.getTodoList().length).toBe(2);
 
-    expect(service.getTodoList()).toEqual([
-      { title: 'new task to do', completed: false },
-      { title: 'new task to do', completed: false },
-    ]);
+    expect(service.getTodoList()).toEqual([item, item]);
   });
-
-
 });

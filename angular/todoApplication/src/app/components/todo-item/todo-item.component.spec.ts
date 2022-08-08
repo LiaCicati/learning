@@ -4,11 +4,14 @@ import { TodoItemComponent } from './todo-item.component';
 import { MockBuilder, MockRender, MockComponents } from 'ng-mocks';
 import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { CommonModule } from '@angular/common';
+import { TodoItem } from '../../interfaces/todo-item';
+import { FormsModule } from '@angular/forms';
+import { InputButtonComponent } from '../input-button/input-button.component';
 
 describe('TodoItemComponent', () => {
   let spectator: Spectator<TodoItemComponent>;
   let component: TodoItemComponent;
-
+  let item: TodoItem;
   const createComponent = createComponentFactory({
     component: TodoItemComponent,
     imports: [CommonModule],
@@ -17,22 +20,49 @@ describe('TodoItemComponent', () => {
   beforeEach(() => {
     spectator = createComponent();
     component = spectator.component;
-    // component.item.title = "hello"
-    // console.log("!!!!!!!!!!!!!!!!!!!!!");
+    spectator.setInput('item', { title: 'hi' });
+  });
 
-    // console.log(component.item);
+  beforeEach(() => {
+    return MockBuilder(
+      // It can be an array too, if you want to keep and export more than 1 thing
+      [
+        InputButtonComponent,
+        FormsModule
+      ]
+    );
   });
 
   it('should create', () => {
-    // pending();
-    console.log(spectator);
-    // expect(component).toBeFalsy();
+    expect(component).toBeDefined();
   });
 
-  // it('should correctly render the passed @Input value', () => {
-  //   component.item = { title: 'you' }; // 1
-  //   spectator.detectChanges(); // 2
-  //   const compiled = spectator.debugElement.nativeElement; // 2
-  //   expect(compiled.innerHTML).toContain('you');
-  // });
+  it('should correctly render the passed @Input value', () => {
+    component.item = { title: 'you' };
+    spectator.detectChanges();
+    const compiled = spectator.debugElement.nativeElement;
+    expect(compiled.innerHTML).toContain('you');
+  });
+
+  it('should correctly emit remove @Output', () => {
+    spyOn(component.remove, 'emit'); // “spy” on the emit method of component.remove object.
+
+    const button = spectator.debugElement.nativeElement.querySelector('button');
+
+    button.click(); // Simulate the button click
+    spectator.detectChanges();
+
+    expect(component.remove.emit).toHaveBeenCalled();
+  });
+
+  it('should correctly emit update @Output', () => {
+    spyOn(component.update, 'emit'); // “spy” on the emit method of component.remove object.
+
+    const input = spectator.debugElement.nativeElement.querySelector('input');
+
+    input.click(); // Simulate the input click
+    spectator.detectChanges();
+
+    expect(component.update.emit).toHaveBeenCalled();
+  });
 });

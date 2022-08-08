@@ -1,12 +1,10 @@
-<input
-  #inputElementRef
-  (input)="onInput(inputElementRef.value)"
-  (keyup.enter)="submitValue(inputElementRef.value)"
-  [value]="newTaskText"
-  placeholder="Add new task"
-  class="input"
-/>
-
-<button class="button" (click)="submitValue(inputElementRef.value)">
-  Add
-</button>
+<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+  <input
+    ngModel
+    name="taskTitle"
+    required
+    placeholder="Add new task"
+    class="input"
+  />
+  <button class="button" type="submit">Add</button>
+</form>

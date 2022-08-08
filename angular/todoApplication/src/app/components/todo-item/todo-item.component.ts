@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./todo-item.component.scss'],
 })
 export class TodoItemComponent implements OnInit {
-  @Input() item!: TodoItem;
+  @Input() item: TodoItem = {} as any;
   @Output() remove: EventEmitter<TodoItem> = new EventEmitter<TodoItem>();
   @Output() update: EventEmitter<any> = new EventEmitter<any>();
   constructor() {

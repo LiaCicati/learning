@@ -14,15 +14,18 @@ describe('TodoListComponent', () => {
   let component: TodoListComponent;
   const createComponent = createComponentFactory({
     component: TodoListComponent,
+    imports: [
+    CommonModule],
+    componentMocks: [InputButtonComponent,
+      TodoItemComponent],
     mocks: [
-      TodoListComponent,
-      InputButtonComponent,
-      TodoItemComponent,
+      TodoListService,
       CommonModule,
     ],
-    providers: [{ provide: TodoListService, useValue: {} }],
+    //TODO: revise here the mocks and imports
   });
 
+  // only with this part all the tests will be working :(
   beforeEach(() => {
     return MockBuilder(
       // It can be an array too, if you want to keep and export more than 1 thing
@@ -35,6 +38,7 @@ describe('TodoListComponent', () => {
       ]
     );
   });
+  //TODO:look here
 
   beforeEach(() => {
     spectator = createComponent();
@@ -48,13 +52,14 @@ describe('TodoListComponent', () => {
   it('should use the todoList from the service', () => {
     const taskService = spectator.inject(TodoListService);
     spectator.detectChanges();
-
+//SPY
     expect(taskService.getTodoList()).toEqual(component.todoList);
   });
 
   it('should add task', () => {
     component.addItem('to do this');
     spectator.detectChanges();
+ // TODO:  //ngmocks.findInstance(TodoItemComponent)
     const compiled = spectator.debugElement.nativeElement;
     expect(compiled.innerHTML).toContain('to do this');
   });
