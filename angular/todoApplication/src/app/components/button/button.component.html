@@ -1,0 +1,13 @@
+<button
+  [disabled]="disabled"
+  [type]="type"
+  (click)="onClick.emit($event)"
+  [ngClass]="classes"
+  [ngStyle]="{
+    'background-color': backgroundColor,
+    color: color,
+    'border-radius': borderRadius
+  }"
+>
+  {{ label }}
+</button>

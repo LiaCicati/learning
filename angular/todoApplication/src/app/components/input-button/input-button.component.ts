@@ -1,9 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormsModule, NgForm } from '@angular/forms';
+import { ButtonComponent } from '../button/button.component';
+import { InputComponent } from '../input/input.component';
 @Component({
   selector: 'app-input-button',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ButtonComponent, InputComponent],
   templateUrl: './input-button.component.html',
   styleUrls: ['./input-button.component.scss'],
 })
@@ -25,9 +27,6 @@ export class InputButtonComponent {
 
   public onSubmit(form: NgForm) {
     this.onSubmitForm.emit(form.form.value.taskTitle);
-    console.log(form.form);
-    this.formC = form.form;
-
-    form.reset();
+    form.reset(); //TODO: see why it's not working
   }
 }

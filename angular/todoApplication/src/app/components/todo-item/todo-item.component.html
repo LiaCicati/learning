@@ -10,6 +10,12 @@
       {{ item.title }}
     </span>
   </div>
-
-  <button class="button-delete" (click)="removeItem()">&#10006;</button>
+  <app-button
+    label="&#10006;"
+    (onClick)="removeItem()"
+    size="medium"
+    backgroundColor="red"
+    color="#fff"
+    borderRadius="0.25rem"
+  ></app-button>
 </div>

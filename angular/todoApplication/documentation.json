@@ -32,18 +32,6 @@
             "indexSignatures": [],
             "kind": 165,
             "methods": []
-        },
-        {
-            "name": "User",
-            "id": "interface-User-9c7e5f1bbbab702cb032307d130876cb68969b0cd4eedef32a0c8cad8081a54e5f8f577ed6ad4539c1b99a1d246cb34031d198c2ea8eba440e64e91b14f01fdc",
-            "file": "src/stories/User.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "interface",
-            "sourceCode": "export interface User {}\n",
-            "properties": [],
-            "indexSignatures": [],
-            "methods": []
         }
     ],
     "injectables": [
@@ -368,20 +356,21 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-4ef205c97a334c309aa4001c8ab4a6d9571dcae18d0e85aaf0d367467ab5d3a9f13ab3573726f1fcb409bc9b49894dadfb80b1bbe1b6ba7041455ad9d4922004",
-            "file": "src/stories/button.component.ts",
+            "id": "component-ButtonComponent-d0f8ce06451b53b4dc050c34946e4cb6910a7fb0b3aa0cae11fd0a38f4b214470a095942a80d466e52e760bd6fa242da73861c3e64d561c4053414c21f416375",
+            "file": "src/app/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-button",
+            "selector": "app-button",
             "styleUrls": [
-                "./button.css"
+                "./button.component.scss"
             ],
             "styles": [],
-            "template": "<button   type=\"button\"\n   (click)=\"onClick.emit($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
-            "templateUrl": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
             "viewProviders": [],
             "inputsClass": [
                 {
@@ -390,8 +379,35 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nWhat background color to use\n",
                     "description": "<p>What background color to use</p>\n",
-                    "line": 26,
+                    "line": 19,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "borderRadius",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 51,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWhat text color to use\n",
+                    "description": "<p>What text color to use</p>\n",
+                    "line": 25,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "boolean",
                     "decorators": []
                 },
                 {
@@ -401,15 +417,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 711,
-                            "end": 724,
+                            "pos": 717,
+                            "end": 730,
                             "flags": 4227072,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 325,
                             "tagName": {
-                                "pos": 712,
-                                "end": 720,
+                                "pos": 718,
+                                "end": 726,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -421,7 +437,7 @@
                     ],
                     "rawdescription": "\n\nButton contents\n\n",
                     "description": "<p>Button contents</p>\n",
-                    "line": 40,
+                    "line": 42,
                     "type": "string",
                     "decorators": []
                 },
@@ -430,9 +446,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\n\nIs this the principal call to action on the page?\n",
-                    "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 20,
+                    "line": 13,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -443,8 +457,18 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nHow large should the button be?\n",
                     "description": "<p>How large should the button be?</p>\n",
-                    "line": 32,
+                    "line": 34,
                     "type": "\"small\" | \"medium\" | \"large\"",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nType\n",
+                    "description": "<p>Type</p>\n",
+                    "line": 48,
+                    "type": "string",
                     "decorators": []
                 }
             ],
@@ -456,12 +480,23 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nOptional click handler\n",
                     "description": "<p>Optional click handler</p>\n",
-                    "line": 46,
+                    "line": 57,
                     "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 66,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -469,15 +504,26 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class ButtonComponent implements OnInit {\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * What text color to use\n   */\n  @Input()\n  color?: string;\n\n  @Input()\n  disabled = false;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Type\n   */\n  @Input()\n  type?: string;\n\n  @Input()\n  borderRadius?: string;\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'button--primary' : 'button--secondary';\n\n    return ['button', `button--${this.size}`, mode];\n  }\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".storybook-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
-                    "styleUrl": "./button.css"
+                    "data": ".button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.button--primary {\n  color: white;\n  background-color: #28a745;\n}\n.button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "styleUrl": "./button.component.scss"
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 63
+            },
+            "implements": [
+                "OnInit"
+            ],
             "accessors": {
                 "classes": {
                     "name": "classes",
@@ -485,87 +531,15 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 48
+                        "line": 59
                     }
                 }
-            }
-        },
-        {
-            "name": "HeaderComponent",
-            "id": "component-HeaderComponent-a557eec14f72c438a8033301f4d6ce023e0a1844a3b06ec2b38794a612acc31735ae78a5ee10071b230c8c20d699eb914554e69d07ade54adb371da8efb464cc",
-            "file": "src/stories/header.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-header",
-            "styleUrls": [
-                "./header.css"
-            ],
-            "styles": [],
-            "template": "<header>    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <div *ngIf=\"user\">\n          <span class=\"welcome\">\n            Welcome, <b>{{ user.name }}</b\n            >!\n          </span>\n          <storybook-button\n            *ngIf=\"user\"\n            size=\"small\"\n            (onClick)=\"onLogout.emit($event)\"\n            label=\"Log out\"\n          ></storybook-button>\n        </div>\n        <div *ngIf=\"!user\">\n          <storybook-button\n            *ngIf=\"!user\"\n            size=\"small\"\n            class=\"margin-left\"\n            (onClick)=\"onLogin.emit($event)\"\n            label=\"Log in\"\n          ></storybook-button>\n          <storybook-button\n            *ngIf=\"!user\"\n            primary\n            size=\"small\"\n            primary=\"true\"\n            class=\"margin-left\"\n            (onClick)=\"onCreateAccount.emit($event)\"\n            label=\"Sign up\"\n          ></storybook-button>\n        </div>\n      </div>\n    </div>\n  </header>",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 65,
-                    "type": "User | null",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onCreateAccount",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 74,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogin",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 68,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogout",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 71,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { User } from './User';\n\n@Component({\n  selector: 'storybook-header',\n  template: `<header>\n    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <div *ngIf=\"user\">\n          <span class=\"welcome\">\n            Welcome, <b>{{ user.name }}</b\n            >!\n          </span>\n          <storybook-button\n            *ngIf=\"user\"\n            size=\"small\"\n            (onClick)=\"onLogout.emit($event)\"\n            label=\"Log out\"\n          ></storybook-button>\n        </div>\n        <div *ngIf=\"!user\">\n          <storybook-button\n            *ngIf=\"!user\"\n            size=\"small\"\n            class=\"margin-left\"\n            (onClick)=\"onLogin.emit($event)\"\n            label=\"Log in\"\n          ></storybook-button>\n          <storybook-button\n            *ngIf=\"!user\"\n            primary\n            size=\"small\"\n            primary=\"true\"\n            class=\"margin-left\"\n            (onClick)=\"onCreateAccount.emit($event)\"\n            label=\"Sign up\"\n          ></storybook-button>\n        </div>\n      </div>\n    </div>\n  </header>`,\n  styleUrls: ['./header.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: User | null = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".wrapper {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 15px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\nsvg {\n  display: inline-block;\n  vertical-align: top;\n}\n\nh1 {\n  font-weight: 900;\n  font-size: 20px;\n  line-height: 1;\n  margin: 6px 0 6px 10px;\n  display: inline-block;\n  vertical-align: top;\n}\n\nbutton + button {\n  margin-left: 10px;\n}\n\n.welcome {\n  color: #333;\n  font-size: 14px;\n  margin-right: 10px;\n}\n",
-                    "styleUrl": "./header.css"
-                }
-            ],
-            "stylesData": ""
+            },
+            "templateData": "<button\n\n  [type]=\"type\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{\n    'background-color': backgroundColor,\n    color: color,\n    'border-radius': borderRadius\n  }\"\n>\n  {{ label }}\n</button>\n"
         },
         {
             "name": "InputButtonComponent",
-            "id": "component-InputButtonComponent-096817cb5051f5b6ec87723ce654610cde770a6c54f4da0f28631c630581d43b945dc64ebb8758c3325af982b5dd20f2959aa5233e59b5daec22e6df6cc79d93",
+            "id": "component-InputButtonComponent-fe0d23ee5b2fa2e4f0cd05c101d6c50c52c47179a94628fcafeb2c92e2052c335f578fd1d7d61af01023cc4852436003b39ff439aa5fdbe8a071898c7cf17f52",
             "file": "src/app/components/input-button/input-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -588,7 +562,7 @@
                     "defaultValue": "new EventEmitter()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "EventEmitter<any>"
                 },
                 {
@@ -596,7 +570,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 12,
                     "type": "EventEmitter"
                 }
             ],
@@ -608,7 +582,7 @@
                     "type": "FormGroup",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 15
                 },
                 {
                     "name": "newTaskText",
@@ -618,7 +592,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 14
                 }
             ],
             "methodsClass": [
@@ -635,7 +609,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 26,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -661,11 +635,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, OnInit, Output } from '@angular/core';\nimport { FormGroup, FormsModule, NgForm } from '@angular/forms';\n@Component({\n  selector: 'app-input-button',\n  standalone: true,\n  imports: [FormsModule],\n  templateUrl: './input-button.component.html',\n  styleUrls: ['./input-button.component.scss'],\n})\nexport class InputButtonComponent {\n  @Output() submit = new EventEmitter<string>();\n  @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();\n  newTaskText = '';\n  formC!: FormGroup;\n  constructor() {}\n\n  // public onInput(value: string) {\n  //   this.newTaskText = value;\n  // }\n  // public submitValue(newTitle: string): void {\n  //   this.submit.emit(newTitle);\n\n  //   this.newTaskText = '';\n  // }\n\n  public onSubmit(form: NgForm) {\n    this.onSubmitForm.emit(form.form.value.taskTitle);\n    console.log(form.form);\n    this.formC = form.form;\n\n    form.reset();\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, OnInit, Output } from '@angular/core';\nimport { FormGroup, FormsModule, NgForm } from '@angular/forms';\nimport { ButtonComponent } from '../button/button.component';\n@Component({\n  selector: 'app-input-button',\n  standalone: true,\n  imports: [FormsModule, ButtonComponent],\n  templateUrl: './input-button.component.html',\n  styleUrls: ['./input-button.component.scss'],\n})\nexport class InputButtonComponent {\n  @Output() submit = new EventEmitter<string>();\n  @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();\n  newTaskText = '';\n  formC!: FormGroup;\n  constructor() {}\n\n  // public onInput(value: string) {\n  //   this.newTaskText = value;\n  // }\n  // public submitValue(newTitle: string): void {\n  //   this.submit.emit(newTitle);\n\n  //   this.newTaskText = '';\n  // }\n\n  public onSubmit(form: NgForm) {\n    this.onSubmitForm.emit(form.form.value.taskTitle);\n    console.log(form.form);\n    this.formC = form.form;\n\n    form.reset();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".input {\n  width: 100%;\n  padding: 20px;\n  font-size: 1rem;\n  font-weight: 400;\n  line-height: 1.5;\n  color: #495057;\n  background-color: #fff;\n  border: 1px solid #ced4da;\n  border-radius: 0.25rem;\n  margin-bottom: 10px;\n}\n.button {\n  color: #fff;\n  background-color: #28a745;\n  border-color: #28a745;\n  display: flex;\n  font-weight: 400;\n  text-align: center;\n  white-space: nowrap;\n  vertical-align: middle;\n  user-select: none;\n  border: 1px solid transparent;\n  padding: 0.375rem 0.75rem;\n  font-size: 1rem;\n  line-height: 1.5;\n  border-radius: 0.25rem;\n  font-size: 1.25rem;\n  //TODO:: : rem\n  margin-left: auto;\n  cursor: pointer;\n\n  &:hover {\n    color: #fff;\n    background-color: #218838;\n    border-color: #1e7e34;\n    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,\n      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n  }\n}\n",
+                    "data": ".input {\n  width: 100%;\n  padding: 20px;\n  font-size: 1rem;\n  font-weight: 400;\n  line-height: 1.5;\n  color: #495057;\n  background-color: #fff;\n  border: 1px solid #ced4da;\n  border-radius: 0.25rem;\n  margin-bottom: 10px;\n}\n\n.button-add {\n  display: flex;\n  justify-content: end;\n}\n",
                     "styleUrl": "./input-button.component.scss"
                 }
             ],
@@ -676,69 +650,57 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 14
+                "line": 15
             },
-            "templateData": "<form (ngSubmit)=\"onSubmit(myForm)\" #myForm=\"ngForm\">\n  <input\n    ngModel\n    name=\"taskTitle\"\n    required\n    placeholder=\"Add new task\"\n    class=\"input\"\n  />\n  <button class=\"button\" type=\"submit\">Add</button>\n</form>\n"
+            "templateData": "<form (ngSubmit)=\"onSubmit(myForm)\" #myForm=\"ngForm\">\n  <input\n  type=\"text\"\n    ngModel\n    name=\"taskTitle\"\n    required\n    placeholder=\"Add new task\"\n    class=\"input\"\n  />\n\n  <app-button\n  [primary]=\"true\"\n    type=\"submit\"\n    class=\"button-add\"\n    label=\"Add\"\n    size=\"large\"\n    borderRadius=\"0.25rem\"\n  ></app-button>\n</form>\n"
         },
         {
-            "name": "PageComponent",
-            "id": "component-PageComponent-7126d8c2607c946741c651482413b43feb72b2d63cac9d3ac173fde206a5e635eb4cdbf7ca7ac9327c7d4d05cf7ef619144c34c11609ad677081d0ee4e855064",
-            "file": "src/stories/page.component.ts",
+            "name": "InputComponent",
+            "id": "component-InputComponent-481b348ed5794080e6777747bbec143142860301e26dc1f7bc66e633c31779e929a4b9057c04fcefd02f0374066b9d039efd45b4f20e6eceb52b5bf90539153f",
+            "file": "src/app/components/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-page",
+            "selector": "app-input",
             "styleUrls": [
-                "./page.css"
+                "./input.component.scss"
             ],
             "styles": [],
-            "template": "<article>    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"doLogout()\"\n      (onLogin)=\"doLogin()\"\n      (onCreateAccount)=\"doCreateAccount()\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>",
-            "templateUrl": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
             "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
+            "inputsClass": [
                 {
-                    "name": "user",
-                    "defaultValue": "null",
+                    "name": "label",
+                    "defaultValue": "'Label'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "User | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 64
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
                 }
             ],
+            "outputsClass": [],
+            "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "doCreateAccount",
+                    "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 74,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "doLogin",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 70,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "doLogout",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 66,
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -750,19 +712,31 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { User } from './User';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"doLogout()\"\n      (onLogin)=\"doLogin()\"\n      (onCreateAccount)=\"doCreateAccount()\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  user: User | null = null;\n\n  doLogout() {\n    this.user = null;\n  }\n\n  doLogin() {\n    this.user = { name: 'Jane Doe' };\n  }\n\n  doCreateAccount() {\n    this.user = { name: 'Jane Doe' };\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss']\n})\nexport class InputComponent implements OnInit {\n\n  @Input()\n  label = 'Label';\n\n  @Input()\n  type?: string;\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "section {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 48px 20px;\n  margin: 0 auto;\n  max-width: 600px;\n  color: #333;\n}\n\nsection h2 {\n  font-weight: 900;\n  font-size: 32px;\n  line-height: 1;\n  margin: 0 0 4px;\n  display: inline-block;\n  vertical-align: top;\n}\n\nsection p {\n  margin: 1em 0;\n}\n\nsection a {\n  text-decoration: none;\n  color: #1ea7fd;\n}\n\nsection ul {\n  padding-left: 30px;\n  margin: 1em 0;\n}\n\nsection li {\n  margin-bottom: 8px;\n}\n\nsection .tip {\n  display: inline-block;\n  border-radius: 1em;\n  font-size: 11px;\n  line-height: 12px;\n  font-weight: 700;\n  background: #e7fdd8;\n  color: #66bf3c;\n  padding: 4px 12px;\n  margin-right: 10px;\n  vertical-align: top;\n}\n\nsection .tip-wrapper {\n  font-size: 13px;\n  line-height: 20px;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n\nsection .tip-wrapper svg {\n  display: inline-block;\n  height: 12px;\n  width: 12px;\n  margin-right: 4px;\n  vertical-align: top;\n  margin-top: 3px;\n}\n\nsection .tip-wrapper svg path {\n  fill: #1ea7fd;\n}\n",
-                    "styleUrl": "./page.css"
+                    "data": "",
+                    "styleUrl": "./input.component.scss"
                 }
             ],
-            "stylesData": ""
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 17
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>input works!</p>\n"
         },
         {
             "name": "TodoItemComponent",
-            "id": "component-TodoItemComponent-6cdcde19260e604c7a3208612143351b124ebd2c3e03a3fae20a88bacf7d27b6ca1682f6ef5ca9dfe7eca70017e3f38f538d0fb7ad922beff313b8c607798163",
+            "id": "component-TodoItemComponent-7f506353e1fa063e542cd9b5d5118bdafbb5242c5016b5009e100b15f0d55499a1d17622bd957e78169be698ae4749aad9bc2575de9f58d967e1c9dc2eefce0b",
             "file": "src/app/components/todo-item/todo-item.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -784,7 +758,7 @@
                     "defaultValue": "{} as any",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "TodoItem",
                     "decorators": []
                 }
@@ -795,7 +769,7 @@
                     "defaultValue": "new EventEmitter<TodoItem>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 14,
                     "type": "EventEmitter<TodoItem>"
                 },
                 {
@@ -803,7 +777,7 @@
                     "defaultValue": "new EventEmitter<any>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 15,
                     "type": "EventEmitter<any>"
                 }
             ],
@@ -815,7 +789,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -828,7 +802,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -838,7 +812,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -853,11 +827,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\nimport { TodoItem } from '../../interfaces/todo-item';\nimport { CommonModule } from '@angular/common';\n@Component({\n  standalone: true,\n  selector: 'app-todo-item',\n  imports: [CommonModule],\n  templateUrl: './todo-item.component.html',\n  styleUrls: ['./todo-item.component.scss'],\n})\nexport class TodoItemComponent implements OnInit {\n  @Input() item: TodoItem = {} as any;\n  @Output() remove: EventEmitter<TodoItem> = new EventEmitter<TodoItem>();\n  @Output() update: EventEmitter<any> = new EventEmitter<any>();\n  constructor() {\n  }\n\n  ngOnInit(): void {}\n\n  public removeItem(): void {\n    this.remove.emit(this.item);\n  }\n\n  public completeItem(): void {\n    this.update.emit({\n      item: this.item,\n      changes: { completed: !this.item.completed },\n    });\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\nimport { TodoItem } from '../../interfaces/todo-item';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent } from '../button/button.component';\n@Component({\n  standalone: true,\n  selector: 'app-todo-item',\n  imports: [CommonModule, ButtonComponent],\n  templateUrl: './todo-item.component.html',\n  styleUrls: ['./todo-item.component.scss'],\n})\nexport class TodoItemComponent implements OnInit {\n  @Input() item: TodoItem = {} as any;\n  @Output() remove: EventEmitter<TodoItem> = new EventEmitter<TodoItem>();\n  @Output() update: EventEmitter<any> = new EventEmitter<any>();\n  constructor() {\n  }\n\n  ngOnInit(): void {}\n\n  public removeItem(): void {\n    this.remove.emit(this.item);\n  }\n\n  public completeItem(): void {\n    this.update.emit({\n      item: this.item,\n      changes: { completed: !this.item.completed },\n    });\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".todo-item {\n  display: flex;\n  font-size: 18px;\n  justify-content: space-between;\n  padding: 1.25rem;\n  word-wrap: break-word;\n  background-color: #fff;\n  border: 1px solid rgba(0, 0, 0, 0.125);\n  border-radius: 0.25rem;\n}\n\n.button-delete {\n  display: flex;\n  color: #fff;\n  background-color: #f23b3b;\n  font-size: 1.25rem;\n  border-radius: 0.25rem;\n  margin-left: auto;\n  cursor: pointer;\n  border: none;\n  padding: 0.375rem 0.75rem;\n}\n\n\n.todo-checkbox {\n  flex-shrink: 0;\n  margin: auto 1ex auto 0;\n}\n\n.todo-complete {\n  text-decoration: line-through;\n}\n",
+                    "data": ".todo-item {\n  display: flex;\n  font-size: 18px;\n  justify-content: space-between;\n  padding: 1.25rem;\n  word-wrap: break-word;\n  background-color: #fff;\n  border: 1px solid rgba(0, 0, 0, 0.125);\n  border-radius: 0.25rem;\n}\n\n.todo-checkbox {\n  flex-shrink: 0;\n  margin: auto 1ex auto 0;\n}\n\n.todo-complete {\n  text-decoration: line-through;\n}\n",
                     "styleUrl": "./todo-item.component.scss"
                 }
             ],
@@ -868,12 +842,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 14
+                "line": 15
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"todo-item\">\n  <div>\n    <input\n      type=\"checkbox\"\n      class=\"todo-checkbox\"\n      (click)=\"completeItem()\"\n      [checked]=\"item.completed\"\n    />\n    <span class=\"todo-title\" [ngClass]=\"{ 'todo-complete': item.completed }\">\n      {{ item.title }}\n    </span>\n  </div>\n\n  <button class=\"button-delete\" (click)=\"removeItem()\">&#10006;</button>\n</div>\n"
+            "templateData": "<div class=\"todo-item\">\n  <div>\n    <input\n      type=\"checkbox\"\n      class=\"todo-checkbox\"\n      (click)=\"completeItem()\"\n      [checked]=\"item.completed\"\n    />\n    <span class=\"todo-title\" [ngClass]=\"{ 'todo-complete': item.completed }\">\n      {{ item.title }}\n    </span>\n  </div>\n  <app-button\n    label=\"&#10006;\"\n    (onClick)=\"removeItem()\"\n    size=\"medium\"\n    backgroundColor=\"red\"\n    color=\"#fff\"\n    borderRadius=\"0.25rem\"\n  ></app-button>\n</div>\n"
         },
         {
             "name": "TodoListComponent",
@@ -1156,6 +1130,36 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Base",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Base",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/input-button/input-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Base",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/todo-item/todo-item.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1199,47 +1203,7 @@
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
+                "file": "src/app/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1249,7 +1213,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1268,7 +1232,7 @@
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1278,7 +1242,7 @@
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1288,31 +1252,31 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/app/components/input-button/input-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
+                "type": "Story<InputButtonComponent>",
+                "defaultValue": "() => ({\n  component: InputButtonComponent,\n  template: `<app-input-button></app-input-button>`,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
+                "file": "src/app/components/todo-item/todo-item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+                "type": "Story<TodoItemComponent>",
+                "defaultValue": "() => ({\n  component: TodoItemComponent,\n  template: `<app-input-button></app-input-button>`,\n})"
             },
             {
                 "name": "todoListStorageKey",
@@ -1329,6 +1293,112 @@
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "src/app/components/button/button.stories.ts": [
+                {
+                    "name": "Base",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args: ButtonComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/components/input-button/input-button.stories.ts": [
+                {
+                    "name": "Base",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/input-button/input-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/input-button/input-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<InputButtonComponent>",
+                    "defaultValue": "() => ({\n  component: InputButtonComponent,\n  template: `<app-input-button></app-input-button>`,\n})"
+                }
+            ],
+            "src/app/components/todo-item/todo-item.stories.ts": [
+                {
+                    "name": "Base",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-item/todo-item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-item/todo-item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TodoItemComponent>",
+                    "defaultValue": "() => ({\n  component: TodoItemComponent,\n  template: `<app-input-button></app-input-button>`,\n})"
+                }
+            ],
             "src/test.ts": [
                 {
                     "name": "context",
@@ -1395,122 +1465,6 @@
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
                 }
-            ],
-            "src/stories/Button.stories.ts": [
-                {
-                    "name": "Large",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Button>",
-                    "defaultValue": "(args: Button) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/stories/Header.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Header>",
-                    "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/stories/Page.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Page>",
-                    "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-                }
             ]
         },
         "groupedFunctions": {},
@@ -1532,6 +1486,75 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 50,
+                "coverageCount": "6/12",
+                "status": "medium"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Base",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/input-button/input-button.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1541,12 +1564,61 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/input-button/input-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Base",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/input-button/input-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/input/input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/todo-item/todo-item.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "TodoItemComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/todo-item/todo-item.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Base",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/todo-item/todo-item.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -1623,152 +1695,6 @@
                 "name": "environment",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Large",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Small",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/User.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "User",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ButtonComponent",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
-            },
-            {
-                "filePath": "src/stories/header.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "HeaderComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/page.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "PageComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
                 "status": "low"
             },
             {
