@@ -12,16 +12,12 @@ describe('TodoListComponent', () => {
   let item: TodoItem;
   let spectator: Spectator<TodoListComponent>;
   let component: TodoListComponent;
+  let formC: TodoFormComponent;
   const createComponent = createComponentFactory({
     component: TodoListComponent,
-    imports: [
-    CommonModule],
-    componentMocks: [TodoFormComponent,
-      TodoItemComponent],
-    mocks: [
-      TodoListService,
-      CommonModule,
-    ],
+    imports: [CommonModule],
+    componentMocks: [TodoFormComponent, TodoItemComponent],
+    mocks: [TodoListService, CommonModule],
     //TODO: revise here the mocks and imports
   });
 
@@ -43,6 +39,7 @@ describe('TodoListComponent', () => {
   beforeEach(() => {
     spectator = createComponent();
     component = spectator.component;
+    formC = new TodoFormComponent();
   });
 
   it('should create', () => {
@@ -52,84 +49,45 @@ describe('TodoListComponent', () => {
   it('should use the todoList from the service', () => {
     const taskService = spectator.inject(TodoListService);
     spectator.detectChanges();
-//SPY
+    // TODO:spy
     expect(taskService.getTodoList()).toEqual(component.todoList);
   });
 
+  //TODO: i moved addItem to another component, look
   it('should add task', () => {
-    component.addItem('to do this');
+    component.todoList.unshift({ title: 'to do this' });
     spectator.detectChanges();
- // TODO:  //ngmocks.findInstance(TodoItemComponent)
+    // TODO:  //ngmocks.findInstance(TodoItemComponent)
     const compiled = spectator.debugElement.nativeElement;
     expect(compiled.innerHTML).toContain('to do this');
   });
 
-  // it('should call remove task once', () => {
-  //   const spy = jasmine.createSpyObj('TodoListComponent', [
-  //     'todoList',
-  //     'removeItem',
-  //   ]);
-
-  //   spy.removeItem(3);
-
-  //   expect(spy.removeItem).toHaveBeenCalledTimes(1);
-  // });
-
+  //TODO:i moved addItem to another component, look
   it('should update a task', () => {
-    const fixture = MockRender(TodoListComponent);
     let newItem: TodoItem;
     newItem = {
       title: 'new',
       completed: false,
     };
     console.log(newItem.completed);
-    fixture.point.componentInstance.addItem(newItem.title);
-    fixture.point.componentInstance.updateItem(
-      newItem,
-      (newItem.completed = true)
-    );
+    component.todoList.unshift(newItem);
+    component.updateItem(newItem, (newItem.completed = true));
 
-    fixture.detectChanges();
+    spectator.detectChanges();
 
     console.log(newItem.completed);
 
     expect(newItem.completed).toBeTruthy();
   });
 
-  it('should call addItem', () => {
-    const spy = jasmine.createSpyObj('TodoListComponent', [
-      'todoList',
-      'addItem',
-    ]);
-
-    spy.addItem('task');
-
-    expect(spy.addItem).toHaveBeenCalled();
-  });
-
   it('should remove task upon click', () => {
-    const fixture = MockRender(TodoListComponent);
-    fixture.point.componentInstance.addItem('to do');
-    fixture.detectChanges();
+    component.todoList.unshift({ title: 'to do', completed: false });
+    spectator.detectChanges();
 
-    fixture.debugElement
+    spectator.debugElement
       .query(By.css('.todo-item'))
-      .query(By.css('.button-delete'))
       .triggerEventHandler('click', null);
-    const compiled = fixture.debugElement.nativeElement;
+    const compiled = spectator.debugElement.nativeElement;
     expect(compiled.innerHTML).toContain('to do');
   });
-
-  it('should show error message if adding empty task', () => {
-    component.addItem('');
-
-    expect(component.errorMessageText).toBe('Task cannot be empty');
-  });
-
-  it('should show error message if adding whitespace in the beggining of the string', () => {
-    component.addItem('    g');
-
-    expect(component.errorMessageText).toBe('This field cannot be left blank');
-  });
-
 });

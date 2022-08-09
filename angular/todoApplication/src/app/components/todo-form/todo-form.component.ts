@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 import { InputComponent } from '../input/input.component';
 import { NgForm, FormsModule, FormGroup } from '@angular/forms';
+import { TodoItem } from '../../interfaces/todo-item';
 
 @Component({
   selector: 'app-todo-form',
@@ -13,19 +14,8 @@ import { NgForm, FormsModule, FormGroup } from '@angular/forms';
 })
 export class TodoFormComponent {
   @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();
-  newTaskText = '';
-  formC!: FormGroup;
   constructor() {}
-
-  // public onInput(value: string) {
-  //   this.newTaskText = value;
-  // }
-  // public submitValue(newTitle: string): void {
-  //   this.submit.emit(newTitle);
-
-  //   this.newTaskText = '';
-  // }
-
+  value?: TodoItem;
   public onSubmit(form: NgForm) {
     this.onSubmitForm.emit(form.form.value.taskTitle);
     form.reset(); //TODO: see why it's not working
