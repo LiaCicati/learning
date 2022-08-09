@@ -1,12 +1,12 @@
 import { MockBuilder, MockRender } from 'ng-mocks';
 import { TodoListComponent } from './todo-list.component';
 import { TodoListService } from '../../services/todo-list.service';
-import { InputButtonComponent } from '../input-button/input-button.component';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { CommonModule } from '@angular/common';
 import { TodoItem } from '../../interfaces/todo-item';
 import { By } from '@angular/platform-browser';
 import { Spectator, createComponentFactory } from '@ngneat/spectator';
+import { TodoFormComponent } from '../todo-form/todo-form.component';
 
 describe('TodoListComponent', () => {
   let item: TodoItem;
@@ -16,7 +16,7 @@ describe('TodoListComponent', () => {
     component: TodoListComponent,
     imports: [
     CommonModule],
-    componentMocks: [InputButtonComponent,
+    componentMocks: [TodoFormComponent,
       TodoItemComponent],
     mocks: [
       TodoListService,
@@ -32,7 +32,7 @@ describe('TodoListComponent', () => {
       [
         TodoListComponent,
         TodoListService,
-        InputButtonComponent,
+        TodoFormComponent,
         TodoItemComponent,
         CommonModule,
       ]

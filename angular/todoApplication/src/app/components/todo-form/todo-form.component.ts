@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 import { InputComponent } from '../input/input.component';
-import { NgForm, FormsModule } from '@angular/forms';
+import { NgForm, FormsModule, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-form',
@@ -11,11 +11,20 @@ import { NgForm, FormsModule } from '@angular/forms';
   templateUrl: './todo-form.component.html',
   styleUrls: ['./todo-form.component.scss'],
 })
-export class TodoFormComponent implements OnInit {
+export class TodoFormComponent {
   @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();
+  newTaskText = '';
+  formC!: FormGroup;
   constructor() {}
 
-  ngOnInit(): void {}
+  // public onInput(value: string) {
+  //   this.newTaskText = value;
+  // }
+  // public submitValue(newTitle: string): void {
+  //   this.submit.emit(newTitle);
+
+  //   this.newTaskText = '';
+  // }
 
   public onSubmit(form: NgForm) {
     this.onSubmitForm.emit(form.form.value.taskTitle);

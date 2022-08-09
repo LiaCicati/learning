@@ -4,8 +4,8 @@ import { MockBuilder, MockRender } from 'ng-mocks';
 import { TodoListService } from '../../services/todo-list.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { CommonModule } from '@angular/common';
-import { InputButtonComponent } from '../input-button/input-button.component';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
+import { TodoFormComponent } from '../todo-form/todo-form.component';
 
 describe('TodoListSpectator', () => {
   let spectator: Spectator<TodoListComponent>;
@@ -15,7 +15,7 @@ describe('TodoListSpectator', () => {
     imports: [
       TodoListComponent,
       TodoListService,
-      InputButtonComponent,
+      TodoFormComponent,
       TodoItemComponent,
       CommonModule,
     ],
