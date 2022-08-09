@@ -1,5 +1,5 @@
 <div class="todo-app">
-  <app-form (onSubmitForm)="addItem($event)"></app-form>
+  <app-todo-form (onSubmitForm)="addItem($event)"></app-todo-form>
   <p *ngIf="errorMessageText" class="error-msg">{{ errorMessageText }}</p>
   <ul class="list">
     <li *ngFor="let todoItem of todoList">
@@ -11,4 +11,3 @@
     </li>
   </ul>
 </div>
-

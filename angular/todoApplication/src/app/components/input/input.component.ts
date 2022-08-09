@@ -29,9 +29,28 @@ export class InputComponent implements OnInit {
   for?: string;
 
   @Input()
-  placeholder?: string;
+  placeholder = 'Placeholder';
   @Input()
   form?: string;
+
+  @Input()
+  borderRadius?: string;
+
+  @Input()
+  outline?: string;
+
+  @Input()
+  border?: string;
+  @Input()
+  labelFontSize?: string;
+  @Input()
+  labelFontWeight?: string;
+  @Input()
+  color?: string;
+  @Input()
+  inputFontSize?: string;
+  @Input()
+  width?: string;
 
   constructor() { }
 

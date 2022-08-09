@@ -1,8 +1,26 @@
-<label [for]="for">{{ label }}</label>
+<div class="container">
+<label
+  [for]="for"
+  [ngStyle]="{
+    'font-size': labelFontSize,
+    'font-weight': labelFontWeight,
+    'color' : color
+  }"
+  >{{ label }}</label
+>
 <input
+  class="input"
   [type]="type"
   [disabled]="disabled"
   [placeholder]="placeholder"
   [name]="name"
   [required]="required"
+  [ngStyle]="{
+    'outline': outline,
+    'border-radius': borderRadius,
+    'border': border,
+    'font-size': inputFontSize,
+    'width': width
+  }"
 />
+</div>

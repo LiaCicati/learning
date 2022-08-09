@@ -5,13 +5,13 @@ import { InputComponent } from '../input/input.component';
 import { NgForm, FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-form',
+  selector: 'app-todo-form',
   standalone: true,
   imports: [CommonModule, InputComponent, ButtonComponent, FormsModule],
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss'],
+  templateUrl: './todo-form.component.html',
+  styleUrls: ['./todo-form.component.scss'],
 })
-export class FormComponent implements OnInit {
+export class TodoFormComponent implements OnInit {
   @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();
   constructor() {}
 

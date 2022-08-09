@@ -3,13 +3,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TodoItem } from '../../interfaces/todo-item';
 import { TodoListService } from '../../services/todo-list.service';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
-import { InputButtonComponent } from '../input-button/input-button.component';
-import { FormComponent } from '../form/form.component';
+import { TodoFormComponent } from '../todo-form/todo-form.component';
 
 @Component({
   standalone: true,
   selector: 'app-todo-list',
-  imports: [FormComponent, TodoItemComponent, CommonModule],
+  imports: [TodoFormComponent, TodoItemComponent, CommonModule],
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
 })

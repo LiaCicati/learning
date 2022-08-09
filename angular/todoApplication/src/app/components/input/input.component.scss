@@ -1,0 +1,25 @@
+.input {
+  width: 100%;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  outline: none;
+  border: 1px solid #ced4da;
+}
+
+input:disabled {
+  background-color: #eee;
+  color: grey;
+  border: 1px solid grey;
+  cursor: not-allowed;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
