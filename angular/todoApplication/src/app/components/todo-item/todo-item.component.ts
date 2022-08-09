@@ -13,6 +13,8 @@ export class TodoItemComponent implements OnInit {
   @Input() item: TodoItem = {} as any;
   @Output() remove: EventEmitter<TodoItem> = new EventEmitter<TodoItem>();
   @Output() update: EventEmitter<any> = new EventEmitter<any>();
+  @Input()
+  label = 'Task';
   constructor() {
   }
 

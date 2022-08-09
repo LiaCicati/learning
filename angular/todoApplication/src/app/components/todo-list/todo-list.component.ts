@@ -14,29 +14,11 @@ import { TodoFormComponent } from '../todo-form/todo-form.component';
 })
 export class TodoListComponent implements OnInit {
   todoList!: TodoItem[];
-  errorMessageText = '';
 
   constructor(private todoListService: TodoListService) {}
 
   ngOnInit(): void {
     this.todoList = this.todoListService.getTodoList();
-  }
-
-  public hasWhiteSpace(s: string) {
-    return /^\s/.test( s);
-  }
-
-  public addItem(title: string): void {
-    if (!title) {
-      this.errorMessageText = 'Task cannot be empty';
-      return;
-    } else if (this.hasWhiteSpace(title)) {
-      this.errorMessageText = 'This field cannot be left blank';
-      return;
-    }
-
-    this.errorMessageText = '';
-    this.todoListService.addItem({ title });
   }
 
   public removeItem(item: TodoItem): void {

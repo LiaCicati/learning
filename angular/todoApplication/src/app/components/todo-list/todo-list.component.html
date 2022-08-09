@@ -1,13 +1,10 @@
-<div class="todo-app">
-  <app-todo-form (onSubmitForm)="addItem($event)"></app-todo-form>
-  <p *ngIf="errorMessageText" class="error-msg">{{ errorMessageText }}</p>
-  <ul class="list">
-    <li *ngFor="let todoItem of todoList">
-      <app-todo-item
-        [item]="todoItem"
-        (remove)="removeItem($event)"
-        (update)="updateItem($event.item, $event.changes)"
-      ></app-todo-item>
-    </li>
-  </ul>
-</div>
+<ul class="list">
+  <li *ngFor="let todoItem of todoList">
+    <app-todo-item
+      [item]="todoItem"
+      [label]="todoItem.title"
+      (remove)="removeItem($event)"
+      (update)="updateItem($event.item, $event.changes)"
+    ></app-todo-item>
+  </li>
+</ul>

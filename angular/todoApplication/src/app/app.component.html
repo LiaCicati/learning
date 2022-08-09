@@ -1,4 +1,8 @@
 <div class="content" role="main">
   <h1 class="title">{{ title }}</h1>
-  <app-todo-list></app-todo-list>
+  <div class="todo-app">
+    <app-todo-form (onSubmitForm)="addItem($event)"></app-todo-form>
+    <p *ngIf="errorMessageText" class="error-msg">{{ errorMessageText }}</p>
+    <app-todo-list></app-todo-list>
+  </div>
 </div>
