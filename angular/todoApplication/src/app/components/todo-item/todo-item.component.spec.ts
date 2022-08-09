@@ -5,8 +5,6 @@ import { MockBuilder, MockRender, MockComponents } from 'ng-mocks';
 import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { CommonModule } from '@angular/common';
 import { TodoItem } from '../../interfaces/todo-item';
-import { FormsModule } from '@angular/forms';
-import { InputButtonComponent } from '../input-button/input-button.component';
 
 describe('TodoItemComponent', () => {
   let spectator: Spectator<TodoItemComponent>;
@@ -23,15 +21,6 @@ describe('TodoItemComponent', () => {
     spectator.setInput('item', { title: 'hi' });
   });
 
-  beforeEach(() => {
-    return MockBuilder(
-      // It can be an array too, if you want to keep and export more than 1 thing
-      [
-        InputButtonComponent,
-        FormsModule
-      ]
-    );
-  });
 
   it('should create', () => {
     expect(component).toBeDefined();

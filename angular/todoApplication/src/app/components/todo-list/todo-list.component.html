@@ -1,5 +1,5 @@
 <div class="todo-app">
-  <app-input-button (onSubmitForm)="addItem($event)"></app-input-button>
+  <app-form (onSubmitForm)="addItem($event)"></app-form>
   <p *ngIf="errorMessageText" class="error-msg">{{ errorMessageText }}</p>
   <ul class="list">
     <li *ngFor="let todoItem of todoList">

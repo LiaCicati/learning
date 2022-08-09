@@ -4,11 +4,12 @@ import { TodoItem } from '../../interfaces/todo-item';
 import { TodoListService } from '../../services/todo-list.service';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { InputButtonComponent } from '../input-button/input-button.component';
+import { FormComponent } from '../form/form.component';
 
 @Component({
   standalone: true,
   selector: 'app-todo-list',
-  imports: [InputButtonComponent, TodoItemComponent, CommonModule],
+  imports: [FormComponent, TodoItemComponent, CommonModule],
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
 })

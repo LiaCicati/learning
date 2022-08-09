@@ -1,1 +1,22 @@
-<p>form works!</p>
+<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+  <app-input
+    for="taskTitle"
+    class="input"
+    label="Task:"
+    type="text"
+    placeholder="Add new task"
+    ngModel
+    ngDefaultControl
+    name="taskTitle"
+  ></app-input>
+
+  <app-button
+    id="hi"
+    [primary]="true"
+    type="submit"
+    class="button-add"
+    label="Add"
+    size="large"
+    borderRadius="0.25rem"
+  ></app-button>
+</form>
