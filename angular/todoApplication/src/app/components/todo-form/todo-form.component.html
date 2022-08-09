@@ -1,14 +1,12 @@
 <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
   <app-input
     for="taskTitle"
-    class="input-custom"
     label="Task:"
     type="text"
     placeholder="Add new task"
     ngModel
     ngDefaultControl
     name="taskTitle"
-    color="#fff"
     labelFontSize="20px"
   ></app-input>
   <app-button

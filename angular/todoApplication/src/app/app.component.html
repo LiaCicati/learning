@@ -1,5 +1,5 @@
 <div class="content" role="main">
-  <h1 class="title">{{ title }}</h1>
+  <h1>{{ title }}</h1>
   <div class="todo-app">
     <app-todo-form (onSubmitForm)="addItem($event)"></app-todo-form>
     <p *ngIf="errorMessageText" class="error-msg">{{ errorMessageText }}</p>
