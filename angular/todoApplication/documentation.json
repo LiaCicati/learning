@@ -1347,7 +1347,7 @@
                 "name": "Base",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/todo-form/todo-form.stories.ts",
+                "file": "src/app/components/todo-item/todo-item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1357,17 +1357,7 @@
                 "name": "Base",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/todo-item/todo-item.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Checked",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/todo-item/todo-item.stories.ts",
+                "file": "src/app/components/todo-form/todo-form.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1546,21 +1536,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/todo-form/todo-form.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<TodoFormComponent>",
-                "defaultValue": "(args: TodoFormComponent) => ({\r\n  props: args,\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/components/todo-item/todo-item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<TodoItemComponent>",
                 "defaultValue": "(args: TodoItemComponent) => ({\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/todo-form/todo-form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TodoFormComponent>",
+                "defaultValue": "(args: TodoFormComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "name": "todoListStorageKey",
@@ -1761,6 +1751,28 @@
                     "defaultValue": "(args: InputComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
+            "src/app/components/todo-item/todo-item.stories.ts": [
+                {
+                    "name": "Base",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-item/todo-item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-item/todo-item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TodoItemComponent>",
+                    "defaultValue": "(args: TodoItemComponent) => ({\r\n  props: args,\r\n})"
+                }
+            ],
             "src/app/components/todo-form/todo-form.stories.ts": [
                 {
                     "name": "Base",
@@ -1781,38 +1793,6 @@
                     "deprecationMessage": "",
                     "type": "Story<TodoFormComponent>",
                     "defaultValue": "(args: TodoFormComponent) => ({\r\n  props: args,\r\n})"
-                }
-            ],
-            "src/app/components/todo-item/todo-item.stories.ts": [
-                {
-                    "name": "Base",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/todo-item/todo-item.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Checked",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/todo-item/todo-item.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/todo-item/todo-item.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<TodoItemComponent>",
-                    "defaultValue": "(args: TodoItemComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
             "src/test.ts": [
@@ -2133,16 +2113,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Base",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/todo-item/todo-item.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Checked",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
