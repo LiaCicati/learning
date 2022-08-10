@@ -10,6 +10,9 @@ export default {
     color: { control: 'color' },
     borderRadius: { control: 'text' },
   },
+  variant: {
+    
+  }
 
 } as Meta;
 

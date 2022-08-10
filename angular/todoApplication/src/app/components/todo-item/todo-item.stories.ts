@@ -24,9 +24,9 @@ const Template: Story<TodoItemComponent> = (args: TodoItemComponent) => ({
 });
 export const Base = Template.bind({});
 
-export const Checked = Template.bind({});
+// export const Checked = Template.bind({});
 
-Checked.args = {
+// Checked.args = {
 
-};
+// };
 // Other stories could be added here as well, all you have to do is export them along!

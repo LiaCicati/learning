@@ -4,6 +4,12 @@ import { InputComponent } from './input.component';
 export default {
   title: 'Components/Input',
   component: InputComponent,
+  parameters: {
+    design: {
+       type: 'figma',
+       url: 'https://www.figma.com/file/DnQ8TdI2TxmLBn4caYMLgg/Storybook?node-id=6%3A4'
+    }
+ },
   argTypes: {
     type: {
       type: 'string',

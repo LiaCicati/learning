@@ -8,7 +8,8 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "storybook-addon-variants",
-    "storybook-addon-pseudo-states"
+    "storybook-addon-pseudo-states",
+    "storybook-addon-designs"
 
   ],
   "framework": "@storybook/angular",
