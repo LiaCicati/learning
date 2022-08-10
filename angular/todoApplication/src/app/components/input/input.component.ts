@@ -26,10 +26,13 @@ export class InputComponent implements OnInit {
   name?: string;
 
   @Input()
+  inputValue = '';
+
+  @Input()
   for?: string;
 
   @Input()
-  placeholder = 'Placeholder';
+  placeholder = 'Type here...';
   @Input()
   form?: string;
 

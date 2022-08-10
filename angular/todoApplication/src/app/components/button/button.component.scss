@@ -12,9 +12,14 @@
 	}
 }
 
+.button:hover {
+  background-color:#1990da;
+  transition: 0.7s;
+}
+
 .button--primary {
-  color: white;
-  background-color: #28a745;
+  color: #fff;
+  background-color: #1EA7FD;
 }
 .button--secondary {
   color: #333;

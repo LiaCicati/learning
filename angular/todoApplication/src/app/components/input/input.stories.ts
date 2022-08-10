@@ -75,3 +75,26 @@ const Template: Story<InputComponent> = (args: InputComponent) => ({
   props: args,
 });
 export const Base = Template.bind({});
+
+export const Populated = Template.bind({});
+
+Populated.args = {
+inputValue: 'To walk my dog'
+};
+
+
+
+export const Focus = () => InputComponent
+Focus.parameters = { pseudo: { focus: true } }
+export const ReadOnly = () => InputComponent
+ReadOnly.parameters = { pseudo: { readonly: true } }
+
+export const Disabled = () => InputComponent
+Disabled.parameters = { pseudo: { disabled: true } }
+
+export const Placeholder = () => InputComponent
+Placeholder.parameters = { pseudo: { placeholder: true } }
+
+export const Active = () => InputComponent
+Active.parameters = { pseudo: { active: true } }
+

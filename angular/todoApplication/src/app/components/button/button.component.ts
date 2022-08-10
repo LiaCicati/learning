@@ -31,7 +31,7 @@ export class ButtonComponent implements OnInit {
    * How large should the button be?
    */
   @Input()
-  size: 'small' | 'medium' | 'large' = 'medium';
+  size: 'small' | 'medium' | 'large' = 'large';
 
   /**
    * Button contents
@@ -45,7 +45,7 @@ export class ButtonComponent implements OnInit {
    * Type
    */
   @Input()
-  type?: string;
+  type = 'button'
 
   @Input()
   borderRadius?: string;

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata } from '@storybook/angular';
 import { Story } from '@storybook/angular/types-6-0';
+
 import { TodoItemComponent } from './todo-item.component';
 // This exports the Stories group for this component
 export default {
@@ -22,4 +23,10 @@ const Template: Story<TodoItemComponent> = (args: TodoItemComponent) => ({
   props: args,
 });
 export const Base = Template.bind({});
+
+export const Checked = Template.bind({});
+
+Checked.args = {
+
+};
 // Other stories could be added here as well, all you have to do is export them along!

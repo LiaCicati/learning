@@ -5,10 +5,12 @@ export default {
   title: 'Components/Button',
   component: ButtonComponent,
   argTypes: {
+
     backgroundColor: { control: 'color' },
     color: { control: 'color' },
     borderRadius: { control: 'text' },
   },
+
 } as Meta;
 
 // This creates a Story for the component
@@ -22,7 +24,9 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   label: 'Hello',
+  size: 'large',
 };
+
 
 export const Secondary = Template.bind({});
 Secondary.args = {
@@ -35,8 +39,20 @@ Large.args = {
   label: 'Button',
 };
 
+export const Medium = Template.bind({});
+Medium.args = {
+  size: 'medium',
+  label: 'Button',
+};
+
+
 export const Small = Template.bind({});
 Small.args = {
   size: 'small',
   label: 'Button',
 };
+
+
+export const Hover = () => ButtonComponent;
+Hover.parameters = { pseudo: { hover: true } };
+

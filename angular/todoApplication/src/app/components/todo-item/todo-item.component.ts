@@ -14,7 +14,8 @@ export class TodoItemComponent implements OnInit {
   @Output() remove: EventEmitter<TodoItem> = new EventEmitter<TodoItem>();
   @Output() update: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  label = '';
+  label = 'To walk my dog';
+
   constructor() {
   }
 
