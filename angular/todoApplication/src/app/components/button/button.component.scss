@@ -1,25 +1,43 @@
 .button {
-	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: 700;
-	border: 0;
-	cursor: pointer;
-	display: inline-block;
-	line-height: 1;
-	&:disabled {
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  &:disabled {
     border: 1px solid #999999;
     background-color: #cccccc;
     color: #fff;
-	}
-}
+  }
+  &:hover {
+    opacity: 0.6;
+    transition: ease-in-out 0.7s;
+  }
 
-.button:hover {
-  background-color:#1990da;
-  transition: 0.7s;
+  &:active {
+    -webkit-box-shadow: inset 0px 1px 3px 2px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: inset 0px 1px 3px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0px 1px 3px 2px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    color: black;
+    border-color: black;
+  }
+
+  &:visited {
+    color: white;
+    background-color: #25a;
+    border-color: #25a;
+  }
 }
 
 .button--primary {
   color: #fff;
-  background-color: #1EA7FD;
+  background-color: #1ea7fd;
 }
 .button--secondary {
   color: #333;

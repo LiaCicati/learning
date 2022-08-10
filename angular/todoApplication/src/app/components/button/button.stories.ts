@@ -53,6 +53,16 @@ Small.args = {
 };
 
 
-export const Hover = () => ButtonComponent;
+export const Hover = Template.bind({});
 Hover.parameters = { pseudo: { hover: true } };
+
+export const Active = Template.bind({});
+Active.parameters = { pseudo: { active: true } };
+
+export const Focus = Template.bind({});
+Focus.parameters = { pseudo: { focus: true } };
+
+export const Visited = Template.bind({});
+Visited.parameters = { pseudo: { visited: true } };
+
 

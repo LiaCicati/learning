@@ -21,6 +21,8 @@ export class InputComponent implements OnInit {
 
   @Input()
   required = true;
+  @Input()
+  readonly = false;
 
   @Input()
   name?: string;

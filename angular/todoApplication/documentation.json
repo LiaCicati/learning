@@ -766,7 +766,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".button {\r\n\tfont-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\r\n\tfont-weight: 700;\r\n\tborder: 0;\r\n\tcursor: pointer;\r\n\tdisplay: inline-block;\r\n\tline-height: 1;\r\n\t&:disabled {\r\n    border: 1px solid #999999;\r\n    background-color: #cccccc;\r\n    color: #fff;\r\n\t}\r\n}\r\n\r\n.button:hover {\r\n  background-color:#1990da;\r\n  transition: 0.7s;\r\n}\r\n\r\n.button--primary {\r\n  color: #fff;\r\n  background-color: #1EA7FD;\r\n}\r\n.button--secondary {\r\n  color: #333;\r\n  background-color: transparent;\r\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\r\n}\r\n.button--small {\r\n  font-size: 12px;\r\n  padding: 10px 16px;\r\n}\r\n.button--medium {\r\n  font-size: 14px;\r\n  padding: 11px 20px;\r\n}\r\n.button--large {\r\n  font-size: 16px;\r\n  padding: 12px 24px;\r\n}\r\n",
+                    "data": ".button {\r\n  font-family: \"Nunito Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\r\n  font-weight: 700;\r\n  border: 0;\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  line-height: 1;\r\n  &:disabled {\r\n    border: 1px solid #999999;\r\n    background-color: #cccccc;\r\n    color: #fff;\r\n  }\r\n  &:hover {\r\n    opacity: 0.6;\r\n    transition: ease-in-out 0.7s;\r\n  }\r\n}\r\n\r\n.button--primary {\r\n  color: #fff;\r\n  background-color: #1ea7fd;\r\n}\r\n.button--secondary {\r\n  color: #333;\r\n  background-color: transparent;\r\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\r\n}\r\n.button--small {\r\n  font-size: 12px;\r\n  padding: 10px 16px;\r\n}\r\n.button--medium {\r\n  font-size: 14px;\r\n  padding: 11px 20px;\r\n}\r\n.button--large {\r\n  font-size: 16px;\r\n  padding: 12px 24px;\r\n}\r\n",
                     "styleUrl": "./button.component.scss"
                 }
             ],
@@ -1057,7 +1057,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".input {\r\n  width: 100%;\r\n  padding: 20px;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n  line-height: 1.5;\r\n  color: #495057;\r\n  background-color: #fff;\r\n  margin-bottom: 10px;\r\n  margin-top: 10px;\r\n  // outline: none;\r\n  border: 1px solid #ced4da;\r\n}\r\n\r\n.input:focus {\r\n  background-color: #fff;\r\n  border-color: #1EA7FD;\r\n  outline: 0;\r\n}\r\n\r\n.input:disabled,\r\n.input[read-only] {\r\n  background-color: #f5f5f5;\r\n  opacity: 1;\r\n}\r\n.input::placeholder {\r\n  color: #212529;\r\n  opacity: 0.4;\r\n}\r\n\r\n.input:not(:placeholder-shown) {\r\n  border: #1EA7FD 2px solid;\r\n  color: #1EA7FD;\r\n}\r\n\r\n.container {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\nlabel {\r\n  color: #1EA7FD;\r\n}\r\n",
+                    "data": ".input {\r\n  width: 100%;\r\n  padding: 20px;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n  line-height: 1.5;\r\n  color: #495057;\r\n  background-color: #fff;\r\n  margin-bottom: 10px;\r\n  margin-top: 10px;\r\n  border: 1px solid #ced4da;\r\n  &:focus {\r\n    background-color: #fff;\r\n    border-color: #1ea7fd;\r\n    outline: 0;\r\n  }\r\n  &:active {\r\n    border: 2px solid green;\r\n  }\r\n  &:disabled {\r\n    background-color: #f5f5f5;\r\n    opacity: 1;\r\n  }\r\n  &::placeholder {\r\n    color: #212529;\r\n    opacity: 0.4;\r\n  }\r\n  &:not(:placeholder-shown) {\r\n    border: #1ea7fd 2px solid;\r\n    color: #1ea7fd;\r\n  }\r\n  &:read-only {\r\n    background-color: red;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n\r\n.container {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\nlabel {\r\n  color: #1ea7fd;\r\n}\r\n",
                     "styleUrl": "./input.component.scss"
                 }
             ],
@@ -1610,7 +1610,7 @@
                 "name": "Base",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/todo-form/todo-form.stories.ts",
+                "file": "src/app/components/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1620,7 +1620,7 @@
                 "name": "Base",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/input/input.stories.ts",
+                "file": "src/app/components/todo-form/todo-form.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1667,16 +1667,6 @@
                 "defaultValue": "[\r\n  { title: 'install NodeJS' },\r\n  { title: 'install Angular CLI' },\r\n  { title: 'create new app' },\r\n  { title: 'serve app' },\r\n  { title: 'develop app' },\r\n  { title: 'deploy app' },\r\n]"
             },
             {
-                "name": "Disabled",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/input/input.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "() => InputComponent"
-            },
-            {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1695,16 +1685,6 @@
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\r\n  production: false\r\n}"
-            },
-            {
-                "name": "Focus",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "() => ButtonComponent"
             },
             {
                 "name": "Focus",
@@ -1737,6 +1717,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1777,14 +1767,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Placeholder",
+                "name": "Medium",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/input/input.stories.ts",
+                "file": "src/app/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "() => InputComponent"
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Populated",
@@ -1846,10 +1836,30 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1892,8 +1902,18 @@
                 "file": "src/app/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "",
+                "type": "Story<ButtonComponent>",
                 "defaultValue": "(args: ButtonComponent) => ({\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<InputComponent>",
+                "defaultValue": "(args: InputComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -1909,20 +1929,10 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/input/input.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "(args: InputComponent) => ({\r\n  props: args,\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/components/todo-item/todo-item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "",
+                "type": "Story<TodoItemComponent>",
                 "defaultValue": "(args: TodoItemComponent) => ({\r\n  props: args,\r\n})"
             },
             {
@@ -1962,27 +1972,7 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
-                    "name": "Disabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/input/input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => InputComponent"
-                },
-                {
                     "name": "Focus",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/input/input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => InputComponent"
-                },
-                {
-                    "name": "Placeholder",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/components/input/input.stories.ts",
@@ -2018,7 +2008,7 @@
                     "file": "src/app/components/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "",
+                    "type": "Story<InputComponent>",
                     "defaultValue": "(args: InputComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
@@ -2034,16 +2024,6 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
-                    "name": "Focus",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => ButtonComponent"
-                },
-                {
                     "name": "Hover",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -2054,7 +2034,47 @@
                     "defaultValue": "() => ButtonComponent"
                 },
                 {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Medium",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
                     "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/components/button/button.stories.ts",
@@ -2070,7 +2090,7 @@
                     "file": "src/app/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "",
+                    "type": "Story<ButtonComponent>",
                     "defaultValue": "(args: ButtonComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
@@ -2124,7 +2144,7 @@
                     "file": "src/app/components/todo-item/todo-item.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "",
+                    "type": "Story<TodoItemComponent>",
                     "defaultValue": "(args: TodoItemComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
@@ -2354,16 +2374,6 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Focus",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/button/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
                 "name": "Hover",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -2374,7 +2384,47 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Medium",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2423,27 +2473,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Disabled",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/input/input.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
                 "name": "Focus",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/components/input/input.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Placeholder",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
