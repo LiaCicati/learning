@@ -10,20 +10,21 @@ export default {
     color: { control: 'color' },
     borderRadius: { control: 'text' },
   },
-  variant: {
-    
-  }
+  // variant: {
+  //   options: ['primary', 'secondary'],
+  //   control: { type: 'radio' },
+  // },
+
 
 } as Meta;
 
-// This creates a Story for the component
 const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({
   props: args,
 });
 export const Base = Template.bind({});
 
 export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/angular/writing-stories/args
+
 Primary.args = {
   primary: true,
   label: 'Hello',
@@ -69,3 +70,8 @@ export const Visited = Template.bind({});
 Visited.parameters = { pseudo: { visited: true } };
 
 
+Base.parameters = {
+  variants: {
+    enable: true
+  },
+};

@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "TodoItem",
-            "id": "interface-TodoItem-3292c986ddb1031ecda4e87474f8ae36b677e9aeb4166babb32de722e060e869b5cbf0cc2ac461723e4f2d8f06dc25c7784013edbea2c529ae0a05863d77c52b",
+            "id": "interface-TodoItem-dacb6d56aed02762dc7a3f66ee96148c63adf4901d0c9be52fff25abf8bf5436df609947e8848c54b8810f6f8a1b6c92c3f59ac797d4ff52b8756d9f17682bb3",
             "file": "src/app/interfaces/todo-item.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface TodoItem {\r\n  title: string;\r\n  completed?: boolean;\r\n}\r\n",
+            "sourceCode": "export interface TodoItem {\n  title: string;\n  completed?: boolean;\n}\n",
             "properties": [
                 {
                     "name": "completed",
@@ -37,7 +37,7 @@
     "injectables": [
         {
             "name": "StorageService",
-            "id": "injectable-StorageService-0dc299f852ee9f88e33b4bdec94b1b89652ae9f2f050e423e8e7ecb7126e6ceb1d4ecdccdec450cff8cd24478da1ebac1fee401d7832e23dbcea8a2af53abdea",
+            "id": "injectable-StorageService-4c0fff42c51ea1c91d3b826cb7f2ae253f8aa753eddc22aa16ee268d98328953a724a7af17d3362b8536396533468d3c4df1c032bbff4f11ba86d2e20df5602b",
             "file": "src/app/services/storage.service.ts",
             "properties": [],
             "methods": [
@@ -117,7 +117,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class StorageService {\r\n  constructor() {}\r\n\r\n  getData(key: string): any {\r\n    return JSON.parse(localStorage.getItem(key) || '{}');\r\n  }\r\n\r\n  setData(key: string, data: any): void {\r\n    localStorage.setItem(key, JSON.stringify(data));\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class StorageService {\n  constructor() {}\n\n  getData(key: string): any {\n    return JSON.parse(localStorage.getItem(key) || '{}');\n  }\n\n  setData(key: string, data: any): void {\n    localStorage.setItem(key, JSON.stringify(data));\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -477,7 +477,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-89b6fe532d081db4ecac7860da92e01a1d4b0d430bb0511fe9c514f823487dc76b713a17d9c7d351bbdad5284037558b56c1760f5fe15d35c81262131bc4a35b",
+            "id": "component-ButtonComponent-ac214288f0c74d549473d86c2e2d674d50723c3429786fc2fc8e7454219b8b1540aafe0c488205c381ebcf5667026660f1f8050023de0c662b60a048c9ffe423",
             "file": "src/app/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -508,7 +508,7 @@
                     "name": "borderRadius",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 51,
+                    "line": 54,
                     "type": "string",
                     "decorators": []
                 },
@@ -527,7 +527,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
+                    "line": 31,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -538,15 +538,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 754,
-                            "end": 768,
+                            "pos": 806,
+                            "end": 820,
                             "flags": 4227072,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 325,
                             "tagName": {
-                                "pos": 755,
-                                "end": 763,
+                                "pos": 807,
+                                "end": 815,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -558,7 +558,7 @@
                     ],
                     "rawdescription": "\n\nButton contents\n\n",
                     "description": "<p>Button contents</p>\n",
-                    "line": 42,
+                    "line": 45,
                     "type": "string",
                     "decorators": []
                 },
@@ -578,7 +578,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nHow large should the button be?\n",
                     "description": "<p>How large should the button be?</p>\n",
-                    "line": 34,
+                    "line": 37,
                     "type": "\"small\" | \"medium\" | \"large\"",
                     "decorators": []
                 },
@@ -589,8 +589,16 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nType\n",
                     "description": "<p>Type</p>\n",
-                    "line": 48,
+                    "line": 51,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "\"primary\" | \"secondary\"",
                     "decorators": []
                 }
             ],
@@ -602,7 +610,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nOptional click handler\n",
                     "description": "<p>Optional click handler</p>\n",
-                    "line": 57,
+                    "line": 60,
                     "type": "EventEmitter"
                 }
             ],
@@ -614,7 +622,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 69,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -626,7 +634,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'app-button',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss'],\r\n})\r\nexport class ButtonComponent implements OnInit {\r\n  @Input()\r\n  primary = false;\r\n\r\n  /**\r\n   * What background color to use\r\n   */\r\n  @Input()\r\n  backgroundColor?: string;\r\n\r\n  /**\r\n   * What text color to use\r\n   */\r\n  @Input()\r\n  color?: string;\r\n\r\n  @Input()\r\n  disabled = false;\r\n\r\n  /**\r\n   * How large should the button be?\r\n   */\r\n  @Input()\r\n  size: 'small' | 'medium' | 'large' = 'large';\r\n\r\n  /**\r\n   * Button contents\r\n   *\r\n   * @required\r\n   */\r\n  @Input()\r\n  label = 'Button';\r\n\r\n  /**\r\n   * Type\r\n   */\r\n  @Input()\r\n  type = 'button'\r\n\r\n  @Input()\r\n  borderRadius?: string;\r\n\r\n  /**\r\n   * Optional click handler\r\n   */\r\n  @Output()\r\n  onClick = new EventEmitter<Event>();\r\n\r\n  public get classes(): string[] {\r\n    const mode = this.primary ? 'button--primary' : 'button--secondary';\r\n\r\n    return ['button', `button--${this.size}`, mode];\r\n  }\r\n  constructor() {}\r\n\r\n  ngOnInit(): void {}\r\n}\r\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'app-button',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss'],\r\n})\r\nexport class ButtonComponent implements OnInit {\r\n  @Input()\r\n  primary = false;\r\n\r\n  /**\r\n   * What background color to use\r\n   */\r\n  @Input()\r\n  backgroundColor?: string;\r\n\r\n  /**\r\n   * What text color to use\r\n   */\r\n  @Input()\r\n  color?: string;\r\n\r\n  @Input()\r\n  variant!: 'primary' | 'secondary';\r\n\r\n  @Input()\r\n  disabled = false;\r\n\r\n  /**\r\n   * How large should the button be?\r\n   */\r\n  @Input()\r\n  size: 'small' | 'medium' | 'large' = 'large';\r\n\r\n  /**\r\n   * Button contents\r\n   *\r\n   * @required\r\n   */\r\n  @Input()\r\n  label = 'Button';\r\n\r\n  /**\r\n   * Type\r\n   */\r\n  @Input()\r\n  type = 'button'\r\n\r\n  @Input()\r\n  borderRadius?: string;\r\n\r\n  /**\r\n   * Optional click handler\r\n   */\r\n  @Output()\r\n  onClick = new EventEmitter<Event>();\r\n\r\n  public get classes(): string[] {\r\n    const mode = this.primary ? 'button--primary' : 'button--secondary';\r\n\r\n    return ['button', `button--${this.size}`, mode];\r\n  }\r\n  constructor() {}\r\n\r\n  ngOnInit(): void {}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -641,7 +649,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 63
+                "line": 66
             },
             "implements": [
                 "OnInit"
@@ -653,11 +661,11 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 59
+                        "line": 62
                     }
                 }
             },
-            "templateData": "<button\r\n  [disabled]=\"disabled\"\r\n  [type]=\"type\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{\r\n    'background-color': backgroundColor,\r\n    color: color,\r\n    'border-radius': borderRadius\r\n  }\"\r\n>\r\n  {{ label }}\r\n</button>\r\n"
+            "templateData": "<button\n  [disabled]=\"disabled\"\n  [type]=\"type\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{\n    'background-color': backgroundColor,\n    color: color,\n    'border-radius': borderRadius\n  }\"\n>\n  {{ label }}\n</button>\n"
         },
         {
             "name": "InputComponent",
@@ -874,7 +882,7 @@
         },
         {
             "name": "TodoFormComponent",
-            "id": "component-TodoFormComponent-03697f65ef46ca4eaa74e0f0035c39cc53565c9bb73221481d8a3425f68de3386d8d691c0f145ae82b07c213b3accc82535c274987edaf7ad6f3b7601afc1c63",
+            "id": "component-TodoFormComponent-953a7671ace47b5213e41c00cdf34d12e35627f28e3c5f077c8ab6e63232521954ab68a87194a11f9545eaf40b669069bbf8cf28c660183b76bb4a4487b203c6",
             "file": "src/app/components/todo-form/todo-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -952,7 +960,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent } from '../button/button.component';\nimport { InputComponent } from '../input/input.component';\nimport { NgForm, FormsModule, FormGroup } from '@angular/forms';\nimport { TodoItem } from '../../interfaces/todo-item';\n\n@Component({\n  selector: 'app-todo-form',\n  standalone: true,\n  imports: [CommonModule, InputComponent, ButtonComponent, FormsModule],\n  templateUrl: './todo-form.component.html',\n  styleUrls: ['./todo-form.component.scss'],\n})\nexport class TodoFormComponent {\n  @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();\n  constructor() {}\n  value?: TodoItem;\n  public onSubmit(form: NgForm) {\n    this.onSubmitForm.emit(form.form.value.taskTitle);\n    form.reset(); //TODO: see why it's not working\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { ButtonComponent } from '../button/button.component';\r\nimport { InputComponent } from '../input/input.component';\r\nimport { NgForm, FormsModule, FormGroup } from '@angular/forms';\r\nimport { TodoItem } from '../../interfaces/todo-item';\r\n\r\n@Component({\r\n  selector: 'app-todo-form',\r\n  standalone: true,\r\n  imports: [CommonModule, InputComponent, ButtonComponent, FormsModule],\r\n  templateUrl: './todo-form.component.html',\r\n  styleUrls: ['./todo-form.component.scss'],\r\n})\r\nexport class TodoFormComponent {\r\n  @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();\r\n  constructor() {}\r\n  value?: TodoItem;\r\n  public onSubmit(form: NgForm) {\r\n    this.onSubmitForm.emit(form.form.value.taskTitle);\r\n    form.reset(); //TODO: see why it's not working\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -969,7 +977,7 @@
                 "args": [],
                 "line": 16
             },
-            "templateData": "<form (ngSubmit)=\"onSubmit(myForm)\" #myForm=\"ngForm\">\n  <app-input\n    for=\"taskTitle\"\n    label=\"Task:\"\n    type=\"text\"\n    placeholder=\"Add new task\"\n    ngModel\n    ngDefaultControl\n    name=\"taskTitle\"\n    labelFontSize=\"20px\"\n  ></app-input>\n  <app-button\n    [primary]=\"true\"\n    type=\"submit\"\n    class=\"button-add\"\n    label=\"Add\"\n    size=\"large\"\n    borderRadius=\"0.25rem\"\n  ></app-button>\n</form>\n"
+            "templateData": "<form (ngSubmit)=\"onSubmit(myForm)\" #myForm=\"ngForm\">\r\n  <app-input\r\n    for=\"taskTitle\"\r\n    label=\"Task:\"\r\n    type=\"text\"\r\n    placeholder=\"Add new task\"\r\n    ngModel\r\n    ngDefaultControl\r\n    name=\"taskTitle\"\r\n    labelFontSize=\"20px\"\r\n  ></app-input>\r\n  <app-button\r\n    [primary]=\"true\"\r\n    type=\"submit\"\r\n    class=\"button-add\"\r\n    label=\"Add\"\r\n    size=\"large\"\r\n    borderRadius=\"0.25rem\"\r\n  ></app-button>\r\n</form>\r\n"
         },
         {
             "name": "TodoItemComponent",
@@ -1266,13 +1274,13 @@
     "modules": [
         {
             "name": "AppRoutingModule",
-            "id": "module-AppRoutingModule-4518c33195180c88b148f5ad346bbd509e37db201ff0191c9bd5d00989bc674a7e8476b2298b5f61b74b4fa3379b6d71a3615e2cc472074cf6e416b23941131b",
+            "id": "module-AppRoutingModule-78922b3ae99d2c5249b333980bd5afde1b120b2cc6fedfd41b8b2cc90f279797cb4b22e183bf7e1d1dfab8c6100e77e7812c110234d81f866f544f28a3e18b15",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app-routing.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { RouterModule, Routes } from '@angular/router';\r\n\r\nconst routes: Routes = [];\r\n\r\n@NgModule({\r\n  imports: [RouterModule.forRoot(routes)],\r\n  exports: [RouterModule]\r\n})\r\nexport class AppRoutingModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [];\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule]\n})\nexport class AppRoutingModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -1347,7 +1355,7 @@
                 "name": "Base",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/todo-item/todo-item.stories.ts",
+                "file": "src/app/components/todo-form/todo-form.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1357,7 +1365,7 @@
                 "name": "Base",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/todo-form/todo-form.stories.ts",
+                "file": "src/app/components/todo-item/todo-item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1391,7 +1399,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\r\n  production: true\r\n}"
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "environment",
@@ -1401,7 +1409,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\r\n  production: false\r\n}"
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "Focus",
@@ -1536,21 +1544,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/todo-item/todo-item.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<TodoItemComponent>",
-                "defaultValue": "(args: TodoItemComponent) => ({\r\n  props: args,\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/components/todo-form/todo-form.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<TodoFormComponent>",
                 "defaultValue": "(args: TodoFormComponent) => ({\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/todo-item/todo-item.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TodoItemComponent>",
+                "defaultValue": "(args: TodoItemComponent) => ({\r\n  props: args,\r\n})"
             },
             {
                 "name": "todoListStorageKey",
@@ -1751,28 +1759,6 @@
                     "defaultValue": "(args: InputComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
-            "src/app/components/todo-item/todo-item.stories.ts": [
-                {
-                    "name": "Base",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/todo-item/todo-item.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/todo-item/todo-item.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<TodoItemComponent>",
-                    "defaultValue": "(args: TodoItemComponent) => ({\r\n  props: args,\r\n})"
-                }
-            ],
             "src/app/components/todo-form/todo-form.stories.ts": [
                 {
                     "name": "Base",
@@ -1793,6 +1779,28 @@
                     "deprecationMessage": "",
                     "type": "Story<TodoFormComponent>",
                     "defaultValue": "(args: TodoFormComponent) => ({\r\n  props: args,\r\n})"
+                }
+            ],
+            "src/app/components/todo-item/todo-item.stories.ts": [
+                {
+                    "name": "Base",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-item/todo-item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-item/todo-item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TodoItemComponent>",
+                    "defaultValue": "(args: TodoItemComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
             "src/test.ts": [
@@ -1847,7 +1855,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\r\n  production: true\r\n}"
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/environments/environment.ts": [
@@ -1859,7 +1867,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\r\n  production: false\r\n}"
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ]
         },
@@ -1886,8 +1894,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
-                "coveragePercent": 50,
-                "coverageCount": "6/12",
+                "coveragePercent": 46,
+                "coverageCount": "6/13",
                 "status": "medium"
             },
             {

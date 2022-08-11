@@ -76,7 +76,6 @@ export default {
   },
 } as Meta;
 
-// This creates a Story for the component
 const Template: Story<InputComponent> = (args: InputComponent) => ({
   props: args,
 });

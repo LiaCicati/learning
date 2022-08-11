@@ -1,15 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  styleUrls: ['./input.component.scss'],
 })
 export class InputComponent implements OnInit {
-
   @Input()
   label = 'Label';
 
@@ -21,6 +21,7 @@ export class InputComponent implements OnInit {
 
   @Input()
   required = true;
+
   @Input()
   readonly = false;
 
@@ -29,6 +30,9 @@ export class InputComponent implements OnInit {
 
   @Input()
   inputValue = '';
+
+  @Output()
+  inputValueChange = new EventEmitter<string>();
 
   @Input()
   for?: string;
@@ -57,9 +61,7 @@ export class InputComponent implements OnInit {
   @Input()
   width?: string;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

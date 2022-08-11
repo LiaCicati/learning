@@ -1,14 +1,16 @@
-<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+<form (ngSubmit)="onSubmit(myForm.form)" #myForm="ngForm">
   <app-input
+    [(ngModel)]="taskName"
     for="taskTitle"
     label="Task:"
     type="text"
     placeholder="Add new task"
-    ngModel
+    [(inputValue)]="taskName"
     ngDefaultControl
     name="taskTitle"
     labelFontSize="20px"
   ></app-input>
+
   <app-button
     [primary]="true"
     type="submit"

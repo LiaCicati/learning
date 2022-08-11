@@ -1,28 +1,29 @@
 <div class="container">
-<label
-  [for]="for"
-  [ngStyle]="{
-    'font-size': labelFontSize,
-    'font-weight': labelFontWeight,
-    'color' : color
-  }"
-  >{{ label }}</label
->
-<input
-  class="input"
-  [value]="inputValue"
-  [readonly]="readonly"
-  [type]="type"
-  [disabled]="disabled"
-  [placeholder]="placeholder"
-  [name]="name"
-  [required]="required"
-  [ngStyle]="{
-    'outline': outline,
-    'border-radius': borderRadius,
-    'border': border,
-    'font-size': inputFontSize,
-    'width': width
-  }"
-/>
+  <label
+    [for]="for"
+    [ngStyle]="{
+      'font-size': labelFontSize,
+      'font-weight': labelFontWeight,
+      color: color
+    }"
+    >{{ label }}</label
+  >
+  <input
+    class="input"
+    [(ngModel)]="inputValue"
+    (ngModelChange)="inputValueChange.emit($event)"
+    [readonly]="readonly"
+    [type]="type"
+    [disabled]="disabled"
+    [placeholder]="placeholder"
+    [name]="name || ''"
+    [required]="required"
+    [ngStyle]="{
+      outline: outline,
+      'border-radius': borderRadius,
+      border: border,
+      'font-size': inputFontSize,
+      width: width
+    }"
+  />
 </div>

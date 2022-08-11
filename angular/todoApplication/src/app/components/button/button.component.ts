@@ -25,6 +25,9 @@ export class ButtonComponent implements OnInit {
   color?: string;
 
   @Input()
+  variant!: 'primary' | 'secondary';
+
+  @Input()
   disabled = false;
 
   /**
