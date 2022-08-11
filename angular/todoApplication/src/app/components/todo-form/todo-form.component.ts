@@ -2,12 +2,14 @@ import {
   Component,
   EventEmitter,
   Output,
+  Input
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 import { InputComponent } from '../input/input.component';
 import { NgForm, FormsModule, FormGroup } from '@angular/forms';
 import { TodoItem } from '../../interfaces/todo-item';
+
 
 @Component({
   selector: 'app-todo-form',
@@ -19,6 +21,8 @@ import { TodoItem } from '../../interfaces/todo-item';
 export class TodoFormComponent {
   public taskName!: string;
 
+
+
   // @ViewChild("myForm")
   // private readonly _form!:NgForm;
   @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();
@@ -29,4 +33,5 @@ export class TodoFormComponent {
     this.onSubmitForm.emit(form.value.taskTitle);
     form.reset();
   }
+
 }
