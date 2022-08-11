@@ -7,9 +7,10 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
+  styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
+
   @Input()
   label = 'Label';
 
@@ -61,7 +62,9 @@ export class InputComponent implements OnInit {
   @Input()
   width?: string;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
 }
