@@ -1,4 +1,8 @@
-import { Component, EventEmitter, OnInit, Output, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 import { InputComponent } from '../input/input.component';
@@ -13,19 +17,16 @@ import { TodoItem } from '../../interfaces/todo-item';
   styleUrls: ['./todo-form.component.scss'],
 })
 export class TodoFormComponent {
-public taskName!:string;
+  public taskName!: string;
 
-  @ViewChild("myForm")
-  private readonly _form!:NgForm;
-
-
+  // @ViewChild("myForm")
+  // private readonly _form!:NgForm;
   @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();
   constructor() {}
   value?: TodoItem;
 
   public onSubmit(form: FormGroup) {
     this.onSubmitForm.emit(form.value.taskTitle);
-    this._form.reset(); //TODO: see why it's not working
-    // this.taskName='';
+    form.reset();
   }
 }
