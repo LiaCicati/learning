@@ -21,8 +21,6 @@ import { TodoItem } from '../../interfaces/todo-item';
 export class TodoFormComponent {
   public taskName!: string;
 
-
-
   // @ViewChild("myForm")
   // private readonly _form!:NgForm;
   @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();

@@ -27,7 +27,9 @@ export class TodoListService {
   saveList(): void {
     this.storageService.setData(todoListStorageKey, this.todoList);
   }
-
+  async getTodos(): Promise<TodoItem[]> {
+    return this.todoList;
+  }
   getTodoList(): TodoItem[] {
     return this.todoList;
   }

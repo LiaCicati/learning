@@ -4,6 +4,9 @@ import { TodoItem } from '../../interfaces/todo-item';
 import { TodoListService } from '../../services/todo-list.service';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoFormComponent } from '../todo-form/todo-form.component';
+import { Store } from '@ngrx/store';
+import {  loadTodos } from '../../state/todos/todo.actions';
+import { selectAllTodos } from '../../state/todos/todo.selectors';
 
 @Component({
   standalone: true,
@@ -15,17 +18,19 @@ import { TodoFormComponent } from '../todo-form/todo-form.component';
 export class TodoListComponent implements OnInit {
   todoList!: TodoItem[];
 
-  constructor(private todoListService: TodoListService) {}
+  constructor(private store: Store) {
+
+  }
 
   ngOnInit(): void {
-    this.todoList = this.todoListService.getTodoList();
+    this.store.dispatch(loadTodos());
   }
+  public allTodos = this.store.select(selectAllTodos);
+  // public removeItem(item: TodoItem): void {
+  //   this.todoListService.deleteItem(item);
+  // }
 
-  public removeItem(item: TodoItem): void {
-    this.todoListService.deleteItem(item);
-  }
-
-  public updateItem(item: TodoItem, changes: any): void {
-    this.todoListService.updateItem(item, changes);
-  }
+  // public updateItem(item: TodoItem, changes: any): void {
+  //   this.todoListService.updateItem(item, changes);
+  // }
 }

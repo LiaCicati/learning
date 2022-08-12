@@ -1,10 +1,9 @@
 <ul class="list">
-  <li *ngFor="let todoItem of todoList">
+  <li *ngFor="let todoItem of allTodos$ | async">
     <app-todo-item
       [item]="todoItem"
       [label]="todoItem.title"
-      (remove)="removeItem($event)"
-      (update)="updateItem($event.item, $event.changes)"
+
     ></app-todo-item>
   </li>
 </ul>
