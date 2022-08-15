@@ -17,7 +17,12 @@ export const initialState: TodoListState = {
 const todoListReducer = createReducer(
   initialState,
   on(TodoListActions.setNewItem, (state, {item}) => ({...state, items: state.items.concat(item)})),
+
   on(TodoListActions.deleteTodoItem, (state, {id}) => ({...state, items: removeItemFromList(state.items, id)})),
+  // on(TodoListActions.deleteTodoItem, (state, { id }) => ({
+  //   ...state,
+  //   items: state.items.filter((todo) => todo._id !== id),
+  // })),
   on(TodoListActions.changeCompletedStatus, (state, {id, completed}) => ({
     ...state,
     items: markListElementAsCompleted(state.items, id, completed)
@@ -25,7 +30,7 @@ const todoListReducer = createReducer(
   on(TodoListActions.loadTodos, (state) => ({ ...state, status: 'loading' })),
   on(TodoListActions.loadTodosSuccess, (state, { todos }) => ({
     ...state,
-    todos: todos,
+    items: todos,
     error: '',
     status: 'success',
   })),
