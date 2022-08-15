@@ -11,8 +11,8 @@ import { ButtonComponent } from '../button/button.component';
 })
 export class TodoItemComponent implements OnInit {
   @Input() item: TodoItem = {} as any;
-  @Output() remove: EventEmitter<TodoItem> = new EventEmitter<TodoItem>();
-  @Output() update: EventEmitter<any> = new EventEmitter<any>();
+  @Output() remove: EventEmitter<TodoItem> = new EventEmitter();
+  @Output() update: EventEmitter<any> = new EventEmitter();
   @Input()
   label = 'To walk my dog';
 
@@ -28,7 +28,7 @@ export class TodoItemComponent implements OnInit {
   public completeItem(): void {
     this.update.emit({
       item: this.item,
-      changes: { completed: !this.item.completed },
+      changes: !this.item.completed
     });
   }
 }

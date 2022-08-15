@@ -1,5 +1,5 @@
-import { TodoState } from './todos/todo.reducer';
+// import { TodoState } from './todos/todo.reducer';
 
-export interface AppState {
-  todos: TodoState;
-}
+// export interface AppState {
+//   todos: TodoState;
+// }

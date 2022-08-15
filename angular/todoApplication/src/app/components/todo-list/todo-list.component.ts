@@ -5,32 +5,45 @@ import { TodoListService } from '../../services/todo-list.service';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoFormComponent } from '../todo-form/todo-form.component';
 import { Store } from '@ngrx/store';
-import {  loadTodos } from '../../state/todos/todo.actions';
-import { selectAllTodos } from '../../state/todos/todo.selectors';
+import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
+import * as fromTodoListSelectors from '../../state/todos/selectors';
+import { loadTodos } from '../../state/todos/actions';
+import {
+  deleteTodoItem,
+  changeCompletedStatus,
+} from 'src/app/state/todos/actions';
 
 @Component({
   standalone: true,
   selector: 'app-todo-list',
-  imports: [TodoFormComponent, TodoItemComponent, CommonModule],
+  imports: [TodoFormComponent, TodoItemComponent, CommonModule, FormsModule],
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent implements OnInit {
-  todoList!: TodoItem[];
+  todoList!: Observable<TodoItem[]>;
 
-  constructor(private store: Store) {
 
-  }
+  constructor(private todoListService: TodoListService, private store: Store) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.todoList = this.todoListService.getTodoList();
     this.store.dispatch(loadTodos());
   }
-  public allTodos = this.store.select(selectAllTodos);
-  // public removeItem(item: TodoItem): void {
-  //   this.todoListService.deleteItem(item);
-  // }
 
-  // public updateItem(item: TodoItem, changes: any): void {
-  //   this.todoListService.updateItem(item, changes);
+  // retrieveListFromStore() {
+  //   this.store.select(fromTodoListSelectors.getTodoItems).subscribe(value => this.todoListSubject.next(value));
   // }
+  removeItem(item: any) {
+    this.store.dispatch(deleteTodoItem({ id: item._id }));
+    this.todoListService.deleteItem(item);
+  }
+
+  updateItem(item: any, changes: any) {
+    this.store.dispatch(
+      changeCompletedStatus({ id: item._id, completed: changes })
+    );
+    this.todoListService.updateItem(item, changes);
+  }
 }

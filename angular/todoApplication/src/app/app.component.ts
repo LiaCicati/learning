@@ -4,7 +4,10 @@ import { CommonModule } from '@angular/common';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoItem } from './interfaces/todo-item';
 import { TodoListService } from './services/todo-list.service';
-
+import { Observable } from 'rxjs';
+import { Store, State } from '@ngrx/store';
+import { setNewItem } from './state/todos/actions';
+import { v4 as uuid } from 'uuid';
 @Component({
   standalone: true,
   selector: 'app-root',
@@ -15,12 +18,12 @@ import { TodoListService } from './services/todo-list.service';
 export class AppComponent implements OnInit {
   title = 'ToDo List';
   errorMessageText = '';
-  todoList!: TodoItem[];
+  todoList: Observable<TodoItem[]> = [] as any;
 
-  constructor(private todoListService: TodoListService) {}
+  constructor(private todoListService: TodoListService, private store: Store) {}
 
   ngOnInit(): void {
-    this.todoList = this.todoListService.getTodoList();
+    this.todoList = this.todoListService.getList();
   }
 
   public hasWhiteSpace(s: string) {
@@ -37,6 +40,8 @@ export class AppComponent implements OnInit {
     }
 
     this.errorMessageText = '';
-    this.todoListService.addItem({ title });
+    this.store.dispatch(setNewItem({item: {_id: uuid(), title: title, completed: false}}));
+    this.todoListService.addItem({title});
+
   }
 }

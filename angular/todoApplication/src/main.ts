@@ -3,11 +3,30 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from './environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { todoReducer } from './app/state/todos/todo.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers, metaReducers } from './app/state';
+import { TodoEffects } from './app/state/todos/todo.effects';
 
 if (environment.production) {
   enableProdMode();
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(HttpClientModule)],
+  providers: [
+    importProvidersFrom(
+      HttpClientModule,
+      StoreModule.forRoot(reducers, {
+        metaReducers,
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true
+        }
+      }),
+      StoreDevtoolsModule.instrument({}),
+      EffectsModule.forRoot([TodoEffects]),
+    ),
+  ],
 }).catch((err) => console.error(err));
