@@ -13,12 +13,10 @@ import {
   map,
   catchError,
   withLatestFrom,
-  mergeMap,
 } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { getTodoItems } from './selectors';
 import { AppState } from '../index';
-import { TodoItem } from '../../interfaces/todo-item';
 import { deleteTodoItem, changeCompletedStatus } from './actions';
 
 @Injectable()
@@ -44,7 +42,7 @@ export class TodoEffects {
     )
   );
 
-  // Run this code when the addTodo or removeTodo action is dispatched
+  // Run this code when the add, remove or update todo action is dispatched
   saveTodos$ = createEffect(
     () =>
       this.actions$.pipe(
@@ -52,7 +50,7 @@ export class TodoEffects {
         withLatestFrom(this.store.select(getTodoItems)),
         switchMap(([action, todos]) => from(this.todoService.saveTodos(todos)))
       ),
-    // Most effects dispatch another action, but this one is just a "fire and forget" effect
+
     { dispatch: false }
   );
 }
