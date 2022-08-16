@@ -16,9 +16,9 @@ export const initialState: TodoListState = {
 
 const todoListReducer = createReducer(
   initialState,
-  on(TodoListActions.setNewItem, (state, { item }) => ({
-    ...state,
-    todos: state.todos.concat(item),
+  on(TodoListActions.setNewItem, (state, { item }) => ({ // new state
+    ...state, //same state
+    todos: state.todos.concat(item), // add the new todo
   })),
 
   on(TodoListActions.deleteTodoItem, (state, { id }) => ({

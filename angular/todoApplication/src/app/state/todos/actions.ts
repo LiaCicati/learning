@@ -16,14 +16,17 @@ export const changeCompletedStatus = createAction(
   props<{ id: string; completed: boolean }>()
 );
 
-export const loadTodos = createAction('[Todo list] Load Todos');
+export const loadTodos = createAction('[Todo list] Load Todos'); //trigger loading process
 
+// both actions triggered by the effect
+// if loading succeeds
 export const loadTodosSuccess = createAction(
-  '[Todo API] Todo Load Success',
+  '[Todo List] Todo Load Success',
   props<{ todos: TodoItem[] }>()
 );
 
+// if loading fails
 export const loadTodosFailure = createAction(
-  '[Todo API] Todo Load Failure',
+  '[Todo List] Todo Load Failure',
   props<{ error: string }>()
 );

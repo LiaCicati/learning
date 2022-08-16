@@ -21,7 +21,9 @@ import { getTodoItems } from '../../state/todos/selectors';
 })
 export class TodoListComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
-  public allTodos$ = this.store.select(getTodoItems);
+
+  public allTodos$ = this.store.select(getTodoItems); // a stream of the current todos state
+
   ngOnInit() {
     this.store.dispatch(loadTodos());
   }

@@ -28,8 +28,8 @@ export class TodoEffects {
   ) {}
 
   loadTodos$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(loadTodos),
+    this.actions$.pipe( // stream of all the actions
+      ofType(loadTodos), // listen for loadTodos
       switchMap(() =>
         // Call the getTodos method, convert it to an observable
         from(this.todoService.getTodos()).pipe(
