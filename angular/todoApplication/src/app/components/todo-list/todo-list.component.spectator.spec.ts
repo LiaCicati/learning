@@ -1,7 +1,7 @@
 import { TodoListComponent } from './todo-list.component';
 import { Spectator, createComponentFactory, SpyObject } from '@ngneat/spectator';
 import { MockBuilder, MockRender } from 'ng-mocks';
-import { TodoListService } from '../../services/todo-list.service';
+import { TodoService } from '../../services/todo-list.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { CommonModule } from '@angular/common';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
@@ -14,18 +14,18 @@ describe('TodoListSpectator', () => {
     component: TodoListComponent,
     imports: [
       TodoListComponent,
-      TodoListService,
+      TodoService,
       TodoFormComponent,
       TodoItemComponent,
       CommonModule,
     ],
-    mocks: [TodoListService],
+    mocks: [TodoService],
     ...dependencies,
   });
 
-let listService: SpyObject<TodoListService>;
+let listService: SpyObject<TodoService>;
   beforeEach(() => {spectator = createComponent();
-    listService = spectator.inject(TodoListService);
+    listService = spectator.inject(TodoService);
   listService.getTodoList.and.returnValue(['a'])
   });
 

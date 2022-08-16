@@ -16,26 +16,34 @@ export const initialState: TodoListState = {
 
 const todoListReducer = createReducer(
   initialState,
-  on(TodoListActions.setNewItem, (state, { item }) => ({ // new state
+  on(TodoListActions.setNewItem, (state, { item }) => ({
+    // new state
     ...state, //same state
     todos: state.todos.concat(item), // add the new todo
   })),
 
+  // delete to do item
   on(TodoListActions.deleteTodoItem, (state, { id }) => ({
     ...state,
     todos: removeItemFromList(state.todos, id),
   })),
+
+  // update todo item
   on(TodoListActions.changeCompletedStatus, (state, { id, completed }) => ({
     ...state,
     todos: markListElementAsCompleted(state.todos, id, completed),
   })),
+
   on(TodoListActions.loadTodos, (state) => ({ ...state, status: 'loading' })),
+
+  // Handle todos load success
   on(TodoListActions.loadTodosSuccess, (state, { todos }) => ({
     ...state,
     todos: todos,
     error: '',
     status: 'success',
   })),
+
   // Handle todos load failure
   on(TodoListActions.loadTodosFailure, (state, { error }) => ({
     ...state,

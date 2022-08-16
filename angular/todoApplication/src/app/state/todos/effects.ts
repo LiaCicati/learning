@@ -8,12 +8,7 @@ import {
 } from './actions';
 import { TodoService } from 'src/app/services/todo-list.service';
 import { of, from } from 'rxjs';
-import {
-  switchMap,
-  map,
-  catchError,
-  withLatestFrom,
-} from 'rxjs/operators';
+import { switchMap, map, catchError, withLatestFrom } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { getTodoItems } from './selectors';
 import { AppState } from '../index';
@@ -28,7 +23,8 @@ export class TodoEffects {
   ) {}
 
   loadTodos$ = createEffect(() =>
-    this.actions$.pipe( // stream of all the actions
+    this.actions$.pipe(
+      // stream of all the actions
       ofType(loadTodos), // listen for loadTodos
       switchMap(() =>
         // Call the getTodos method, convert it to an observable

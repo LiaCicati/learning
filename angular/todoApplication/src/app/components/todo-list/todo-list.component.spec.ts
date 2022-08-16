@@ -1,6 +1,6 @@
 import { MockBuilder, MockRender } from 'ng-mocks';
 import { TodoListComponent } from './todo-list.component';
-import { TodoListService } from '../../services/todo-list.service';
+import { TodoService } from '../../services/todo-list.service';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { CommonModule } from '@angular/common';
 import { TodoItem } from '../../interfaces/todo-item';
@@ -17,7 +17,7 @@ describe('TodoListComponent', () => {
     component: TodoListComponent,
     imports: [CommonModule],
     componentMocks: [TodoFormComponent, TodoItemComponent],
-    mocks: [TodoListService, CommonModule],
+    mocks: [TodoService, CommonModule],
     //TODO: revise here the mocks and imports
   });
 
@@ -27,7 +27,7 @@ describe('TodoListComponent', () => {
       // It can be an array too, if you want to keep and export more than 1 thing
       [
         TodoListComponent,
-        TodoListService,
+        TodoService,
         TodoFormComponent,
         TodoItemComponent,
         CommonModule,
@@ -47,15 +47,15 @@ describe('TodoListComponent', () => {
   });
 
   it('should use the todoList from the service', () => {
-    const taskService = spectator.inject(TodoListService);
+    const taskService = spectator.inject(TodoService);
     spectator.detectChanges();
     // TODO:spy
-    expect(taskService.getTodoList()).toEqual(component.todoList);
+    expect(taskService.getTodoList()).toEqual(component.allTodos$);
   });
 
   //TODO: i moved addItem to another component, look
   it('should add task', () => {
-    component.todoList.unshift({ title: 'to do this' });
+    // component.todoList.unshift({ title: 'to do this' });
     spectator.detectChanges();
     // TODO:  //ngmocks.findInstance(TodoItemComponent)
     const compiled = spectator.debugElement.nativeElement;
@@ -70,7 +70,7 @@ describe('TodoListComponent', () => {
       completed: false,
     };
     console.log(newItem.completed);
-    component.todoList.unshift(newItem);
+    // component.todoList.unshift(newItem);
     component.updateItem(newItem, (newItem.completed = true));
 
     spectator.detectChanges();
@@ -81,7 +81,7 @@ describe('TodoListComponent', () => {
   });
 
   it('should remove task upon click', () => {
-    component.todoList.unshift({ title: 'to do', completed: false });
+    // component.todoList.unshift({ title: 'to do', completed: false });
     spectator.detectChanges();
 
     spectator.debugElement

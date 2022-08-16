@@ -2,7 +2,7 @@ import { createAction, props } from '@ngrx/store';
 import { TodoItem } from 'src/app/interfaces/todo-item';
 
 export const setNewItem = createAction(
-  '[Todo list] Set new todo list item',
+  '[App] Set new todo list item',
   props<{ item: TodoItem }>()
 );
 
@@ -21,12 +21,12 @@ export const loadTodos = createAction('[Todo list] Load Todos'); //trigger loadi
 // both actions triggered by the effect
 // if loading succeeds
 export const loadTodosSuccess = createAction(
-  '[Todo List] Todo Load Success',
+  '[Todo List storage] Todo Load Success',
   props<{ todos: TodoItem[] }>()
 );
 
 // if loading fails
 export const loadTodosFailure = createAction(
-  '[Todo List] Todo Load Failure',
+  '[Todo List storage] Todo Load Failure',
   props<{ error: string }>()
 );
