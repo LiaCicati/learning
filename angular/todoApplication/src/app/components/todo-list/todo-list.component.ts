@@ -25,7 +25,7 @@ export class TodoListComponent implements OnInit {
   public allTodos$ = this.store.select(getTodoItems); // a stream of the current todos state
 
   ngOnInit() {
-    this.store.dispatch(loadTodos());
+    this.store.dispatch(loadTodos()); // will trigger the effect loadTodos$
   }
 
   removeItem(item: any) {

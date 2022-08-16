@@ -2,31 +2,31 @@ import { createAction, props } from '@ngrx/store';
 import { TodoItem } from 'src/app/interfaces/todo-item';
 
 export const setNewItem = createAction(
-  '[App] Set new todo list item',
-  props<{ item: TodoItem }>()
+  '[App component] Set new todo list item',
+  props<{ item: TodoItem }>() // data sent to the reducer
 );
 
 export const deleteTodoItem = createAction(
-  '[Todo list] Delete todo item',
+  '[Todo list Component] Delete todo item',
   props<{ id: string }>()
 );
 
 export const changeCompletedStatus = createAction(
-  '[Todo list] Change status of the item',
+  '[Todo list Component] Change status of the item',
   props<{ id: string; completed: boolean }>()
 );
 
-export const loadTodos = createAction('[Todo list] Load Todos'); //trigger loading process
+export const loadTodos = createAction('[Todo list Component] Load Todos'); //trigger loading process
 
 // both actions triggered by the effect
 // if loading succeeds
 export const loadTodosSuccess = createAction(
-  '[Todo List storage] Todo Load Success',
+  '[Todo List] Todo Load Success',
   props<{ todos: TodoItem[] }>()
 );
 
 // if loading fails
 export const loadTodosFailure = createAction(
-  '[Todo List storage] Todo Load Failure',
+  '[Todo List] Todo Load Failure',
   props<{ error: string }>()
 );
