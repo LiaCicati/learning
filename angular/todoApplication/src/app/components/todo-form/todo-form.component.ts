@@ -1,13 +1,11 @@
 import {
   Component,
   EventEmitter,
-  Output,
-  Input
-} from '@angular/core';
+  Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 import { InputComponent } from '../input/input.component';
-import { NgForm, FormsModule, FormGroup } from '@angular/forms';
+import { FormsModule, FormGroup } from '@angular/forms';
 import { TodoItem } from '../../interfaces/todo-item';
 
 

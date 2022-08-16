@@ -3,19 +3,20 @@ import {
   ActionReducerMap,
   createFeatureSelector,
   createSelector,
-  MetaReducer
+  MetaReducer,
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import { TodoListState } from '../state/todos/reducers';
 import * as fromTodoListReducers from '../state/todos/reducers';
 
 export interface AppState {
-  todoList: TodoListState,
+  todos: TodoListState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  todoList: fromTodoListReducers.reducer
+  todos: fromTodoListReducers.reducer,
 };
 
-
-export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<AppState>[] = !environment.production
+  ? []
+  : [];

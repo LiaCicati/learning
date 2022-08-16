@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { CommonModule } from '@angular/common';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
-import { TodoItem } from './interfaces/todo-item';
-import { TodoListService } from './services/todo-list.service';
-import { Observable } from 'rxjs';
-import { Store, State } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { setNewItem } from './state/todos/actions';
 import { v4 as uuid } from 'uuid';
 @Component({
@@ -18,13 +15,10 @@ import { v4 as uuid } from 'uuid';
 export class AppComponent implements OnInit {
   title = 'ToDo List';
   errorMessageText = '';
-  todoList: Observable<TodoItem[]> = [] as any;
 
-  constructor(private todoListService: TodoListService, private store: Store) {}
+  constructor(private store: Store) {}
 
-  ngOnInit(): void {
-    this.todoList = this.todoListService.getList();
-  }
+  ngOnInit(): void {}
 
   public hasWhiteSpace(s: string) {
     return /^\s/.test(s);
@@ -40,8 +34,8 @@ export class AppComponent implements OnInit {
     }
 
     this.errorMessageText = '';
-    this.store.dispatch(setNewItem({item: {_id: uuid(), title: title, completed: false}}));
-    this.todoListService.addItem({title});
-
+    this.store.dispatch(
+      setNewItem({ item: { _id: uuid(), title: title, completed: false } })
+    );
   }
 }

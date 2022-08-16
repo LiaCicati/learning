@@ -3,24 +3,31 @@ import { Action, createReducer, on } from '@ngrx/store';
 import * as TodoListActions from './actions';
 
 export interface TodoListState {
-  items: TodoItem[];
+  todos: TodoItem[];
   error: string;
   status: 'pending' | 'loading' | 'error' | 'success';
 }
 
 export const initialState: TodoListState = {
-  items: [],
+  todos: [],
   error: '',
   status: 'pending',
 };
 
 const todoListReducer = createReducer(
   initialState,
-  on(TodoListActions.setNewItem, (state, {item}) => ({...state, items: state.items.concat(item)})),
-  on(TodoListActions.deleteTodoItem, (state, {id}) => ({...state, items: removeItemFromList(state.items, id)})),
-  on(TodoListActions.changeCompletedStatus, (state, {id, completed}) => ({
+  on(TodoListActions.setNewItem, (state, { item }) => ({
     ...state,
-    items: markListElementAsCompleted(state.items, id, completed)
+    todos: state.todos.concat(item),
+  })),
+
+  on(TodoListActions.deleteTodoItem, (state, { id }) => ({
+    ...state,
+    todos: removeItemFromList(state.todos, id),
+  })),
+  on(TodoListActions.changeCompletedStatus, (state, { id, completed }) => ({
+    ...state,
+    todos: markListElementAsCompleted(state.todos, id, completed),
   })),
   on(TodoListActions.loadTodos, (state) => ({ ...state, status: 'loading' })),
   on(TodoListActions.loadTodosSuccess, (state, { todos }) => ({
@@ -37,24 +44,27 @@ const todoListReducer = createReducer(
   }))
 );
 
-
 function removeItemFromList(list: TodoItem[], id: string): TodoItem[] {
   return list.filter((element) => {
-    return element._id !== id
-  })
+    return element._id !== id;
+  });
 }
 
-function markListElementAsCompleted(list: TodoItem[], id: string, completed: boolean): TodoItem[] {
-  return list.map(value => {
+function markListElementAsCompleted(
+  list: TodoItem[],
+  id: string,
+  completed: boolean
+): TodoItem[] {
+  return list.map((value) => {
     if (value._id === id) {
       return {
         ...value,
-        completed: completed
-      }
+        completed: completed,
+      };
     } else {
-      return value
+      return value;
     }
-  })
+  });
 }
 
 export function reducer(state: TodoListState | undefined, action: Action) {

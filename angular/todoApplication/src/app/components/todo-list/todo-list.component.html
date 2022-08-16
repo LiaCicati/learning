@@ -1,5 +1,5 @@
 <ul class="list">
-  <li *ngFor="let todoItem of todoList | async">
+  <li *ngFor="let todoItem of allTodos$! | async">
     <app-todo-item
       [item]="todoItem"
       [label]="todoItem.title"
@@ -8,17 +8,3 @@
     ></app-todo-item>
   </li>
 </ul>
-
-<!-- <div>
-  <div class="container">
-    <h2>Let's get things done!</h2>
-    <input [(ngModel)]="todo" />
-    <button (click)="addTodo()">Add Todo</button>
-
-    <ul>
-      <li *ngFor="let todo of allTodos$ | async">
-        <span> {{ todo.title }} </span>
-      </li>
-    </ul>
-  </div>
-</div> -->
